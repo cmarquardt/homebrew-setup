@@ -23,6 +23,9 @@
 #
 # Notes for Python 3.7:
 # ---------------------
+#  - So far, we only have a base set of modules - it will grow over time.
+#  - All pip related tools (pipdate, pip-chill. pip-check. pipdeptree) are
+#    in Python 3 only, as Python 2 is frozen.
 
 # 1. Shell variables
 # ------------------

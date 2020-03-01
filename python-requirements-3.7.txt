@@ -12,6 +12,7 @@ cycler
 decorator
 defusedxml
 distlib
+ecmwf-api-client
 entrypoints
 filelock
 fortran-language-server
