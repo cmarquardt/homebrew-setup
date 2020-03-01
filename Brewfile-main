@@ -348,4 +348,6 @@ brew "cmarquardt/formulae/python@2"
 brew "cmarquardt/formulae/sofa"
 # Standards of Fundamental Astronomy (SOFA) library - Fortran version
 brew "cmarquardt/formulae/sofa-fortran"
+cask "atom"
 cask "sublime-text"
+cask "textmate"
