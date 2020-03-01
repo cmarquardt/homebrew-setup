@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+# This hook is run after every virtualenv is activated.
+
+# 1. Add the name of the current virtual environment to the command line prompt
+
+if [ "$LOGNAME" = "root" ]; then
+  PS1='$HOST ROOT (`basename $VIRTUAL_ENV`$(__git_ps1 " (on %s)")) ${PWD}>'
+else
+  PS1='$HOST (`basename $VIRTUAL_ENV`$(__git_ps1 " (on %s)")) ${PWD}>'
+fi
+
+# 2. Add an R library path to the environment and make sure the directory exists
+
+export R_LIBS="$VIRTUAL_ENV/lib/R/library"
+
+if [ ! -d $R_LIBS ]; then
+  mkdir -p $R_LIBS
+fi

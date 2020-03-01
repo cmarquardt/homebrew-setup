@@ -1,0 +1,18 @@
+#!/bin/bash
+# This hook is run after a new virtualenv is activated.
+
+# Install pytest and nose so that tests run inside the virtual environment
+
+pip install --ignore-installed pytest
+pip install --ignore-installed nose
+
+# The following prepares the virtual environment to have matplotlib running
+# (see https://github.com/gldnspud/virtualenv-pythonw-osx/issues/12)
+
+python_version=`python -c "import sys; print(sys.version_info.major)"`
+
+if [ "$python_version" == "2" ]; then
+    echo ""
+    echo "Fixing virtual environment to contain a Python app bundle"
+    fix-osx-virtualenv $VIRTUAL_ENV
+fi
