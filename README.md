@@ -27,13 +27,29 @@ I've cloned the Homebrew installation scripts and updated them to install into `
 
 Note: If the paths were not set up prior to running the above installation command, the script will issue a warning that `/opt/homebrew/bin` isn't in `PATH`. That's fine, but update `/etc/paths` now.
 
-## Install software
+## Install software (part I)
 
 The `Brewfile-main` Brewfile installs the majority of the software I use and also adds all required taps. Use it with
 
     brew bundle --file Brewfile-main
 
-This Brewfile also install python@2; proceed with installing all Python packages (for both Python 3 and Python 2). Additional packages that do depend on Python packages can then be installed with
+## Install Python packages
+
+The main Brewfile also installs python@2; one may thus proceed with installing all Python packages (for both Python 3 and Python 2). The lists of python packages to be installed for both Pathon 2 and Python 3 are contained in the `python-requirements-n.n.txt`requirements files. They are used by the Python module installation script which is used like this:
+
+    ./install-python-packages.sh
+
+## Install R packages
+
+Of course, we also have R packages; there installation proceeds with
+
+    ./install-r-packages.R
+
+Note that the packages to be installed are listed in the file `r-requirements.txt`.
+
+## Install software (part II)
+
+Finally, there are some packages that benefit in particular, form the Python 2 modules; they can be installed with
 
     brew bundle --file Brewfile-secondary
 
