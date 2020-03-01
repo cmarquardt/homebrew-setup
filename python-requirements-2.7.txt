@@ -57,7 +57,7 @@ html5lib==1.0.1
 idna==2.9
 imagesize==1.2.0
 importlib-metadata==1.5.0
-importlib-resources=1.0.2
+importlib-resources==1.0.2
 ipaddress==1.0.23
 ipython==5.9.0
 ipython-genutils==0.2.0
@@ -161,6 +161,7 @@ webencodings==0.5.1
 whichcraft==0.6.1
 ZConfig==3.5.0
 zipp==1.2.0
+git+https://github.com/gldnspud/virtualenv-pythonw-osx
 virtualenv
 virtualenv-clone
 virtualenvwrapper

@@ -38,7 +38,7 @@ python3 -m ensurepip --upgrade
 
 # 2.2 Core packages
 
-pip3 install -r requirements-3.7.txt
+pip3 install -r python-requirements-3.7.txt
 
 # 2.3 Special cases
 
@@ -53,7 +53,7 @@ python2 -m ensurepip --upgrade
 
 # 3.2 Core packages
 
-pip2 install -r requirements-2.7.txt
+pip2 install -r python-requirements-2.7.txt
 
 # 3.3 Special cases
 
