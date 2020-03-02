@@ -344,6 +344,8 @@ brew "vtk"
 brew "wxmac"
 # Interpreted, interactive, object-oriented programming language
 brew "cmarquardt/formulae/python@2"
+# EUMETSAT Polar System (EPS) data format library and python interface
+brew "cmarquardt/formulae/eugene"
 # Standards of Fundamental Astronomy (SOFA) library - C version
 brew "cmarquardt/formulae/sofa"
 # Standards of Fundamental Astronomy (SOFA) library - Fortran version
