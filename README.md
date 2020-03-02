@@ -19,6 +19,14 @@ Note that the executables in omebrew now take precedence over all other ones, in
 
 One conflict I did experience once is Docker; I use the installer from Docker Hub which places its command line tools into `/usr/local`. For a while, I had one Homebrew package that dependen on their Docker, so its installation would place a second set of Docker command line tools into Hombrew, shadowing the official ones. One workaround would be to install that Homebrew package without dependencies. On the other hand, I actually never experienced any real problems with Docker while I had bot sets of command line tools as the Homebrew version was reasonably aligned with offcial Docker releases.
 
+## Setting up the shell
+
+Initialisation scripts for`bash` are provided in the subdirectory tree with the same name; they can be installed into `$HOME` using
+
+    install-shell-init.sh
+
+and place files to be sourced into `~/.bashrc.d` and `~/.profile.d`. In addition, the create new initialisation files `~/.bashrc` and `~/.bash_profile`, and finally create a directory to hold command line completions for the bash shell.
+
 ## Install homebrew
 
 I've cloned the Homebrew installation scripts and updated them to install into `/opt/homebrew`; the repository is [on GitHub](https://github.com/cmarquardt/homebrew-install). To install from scratch:

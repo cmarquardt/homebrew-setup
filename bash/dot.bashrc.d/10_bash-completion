@@ -1,0 +1,47 @@
+################################################################################
+#                                                                              #
+# Global settings for bash completions v2.x                                    #
+# -----------------------------------------                                    #
+#                                                                              #
+# C. Marquardt, Darmstadt, (C) 2001 - 2020                                     #
+#                                                                              #
+################################################################################
+
+# Bash on macOS
+# -------------
+
+# The default shell, until Mojave, was the rather outdated version v3.2 of bash;
+# likely that's because bash switched to GPL v3 with v4, and Apple didn't like 
+# the move...
+#
+# The Homebrew package bash-completion (v1.x) serves that older version of the 
+# bash.
+#
+# Homebrew also offers a newer version of bash; version above v4.1 of bash are 
+# supported by the package bash-completion@2.
+#
+# Also check the caveats for these two formulas; they actually propose some 
+# different syntax which is identical for both. Oh, and it should go to the
+# file ~/.bash_profile, not ~/.bashrc.
+
+[[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+
+# For v2.x:
+#export BASH_COMPLETION_COMPAT_DIR="$(brew --prefix)/etc/bash_completion.d"
+
+#-------------------------------------------------------------------------------
+# 1. Source the bash-completion script (v1.x)
+#-------------------------------------------------------------------------------
+
+#if [ -f $(brew --prefix)/etc/bash_completion ]; then
+#  . $(brew --prefix)/etc/bash_completion
+#fi
+
+#-------------------------------------------------------------------------------
+# 2. Source the bash-completion script (v2.x)
+#-------------------------------------------------------------------------------
+
+#if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
+#  . $(brew --prefix)/share/bash-completion/bash_completion
+#fi
+

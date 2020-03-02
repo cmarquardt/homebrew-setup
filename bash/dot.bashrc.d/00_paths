@@ -1,0 +1,10 @@
+# Disble zsh warning at startup
+# -----------------------------
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# PATH settings
+# -------------
+
+eval `/usr/libexec/path_helper -s`
+PATH=".:$HOME/Library/bin:$PATH"

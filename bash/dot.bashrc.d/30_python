@@ -1,0 +1,34 @@
+################################################################################
+#                                                                              #
+# Global settings for Python                                                   #
+# --------------------------                                                   #
+#                                                                              #
+# C. Marquardt, Darmstadt, (C) 2001 - 2020                                     #
+#                                                                              #
+################################################################################
+
+#-------------------------------------------------------------------------------
+# 1. Python Startup
+#-------------------------------------------------------------------------------
+
+if [ -f ~/.python-startup ]; then
+   export PYTHONSTARTUP=$HOME/.python-startup
+fi
+
+#-------------------------------------------------------------------------------
+# 2. Virtual environments
+#-------------------------------------------------------------------------------
+
+HOMEBREW_HOME=`brew --prefix`
+
+export WORKON_HOME=${HOME}/Library/Virtualenvs
+export PROJECT_HOME=${HOME}/Src/Python
+
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--system-site-packages'
+
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+
+if [ -x $HOMEBREW_HOME/bin/virtualenvwrapper.sh ]; then
+   source $HOMEBREW_HOME/bin/virtualenvwrapper.sh
+fi

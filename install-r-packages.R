@@ -5,7 +5,7 @@
 #
 # C. Marquardt, Darmstadt
 #
-# 29 May 2017
+# 29 February 2020
 #
 # Note: ROracle is temporarily installed in a seperate script. However,
 #       ROracle, if installed with Oracle Instant clients,

@@ -1,0 +1,26 @@
+################################################################################
+#                                                                              #
+# Environment variables supporting various data sets                           #
+# --------------------------------------------------                           #
+#                                                                              #
+# C. Marquardt, Darmstadt, (C) 2001 - 2020                                     #
+#                                                                              #
+################################################################################
+
+#-------------------------------------------------------------------------------
+# 1. EcCodes
+#-------------------------------------------------------------------------------
+
+# Note: This variable isn't supported by EcCodes, actually...
+#export BUFR_TABLES=`brew --prefix`/share/eccodes
+
+export ECCODES_BUFR_SET_TO_MISSING_IF_OUT_OF_RANGE=1
+
+#-------------------------------------------------------------------------------
+# 2. EGM96 Gravity field coefficients and correction factors
+#-------------------------------------------------------------------------------
+
+# Note: These point to files.
+#export GEOPOT_COEF=
+#export GEOPOT_CORR=
+

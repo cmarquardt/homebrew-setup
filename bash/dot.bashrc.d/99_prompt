@@ -1,0 +1,44 @@
+################################################################################
+#                                                                              #
+# Global settings for a bash shell prompt                                      #
+# ---------------------------------------                                      #
+#                                                                              #
+# C. Marquardt, Darmstadt, (C) 2001 - 2020                                     #
+#                                                                              #
+# NOTE: In my setup under Mac OSX, ~/.profile or ~/.bash_profile calls         #
+#       ~/.bashrc (which in turn calls all properly named files in             #
+#       ~/.bashrc.d, possibly including this script) before it calls all       #
+#       files in ~/.profile.d.                                                 #
+#                                                                              #
+#       In order to ensure that the shell prompt is set according to this      #
+#       file regardless of ~/.profile or ~/.bash_profile is sourced, it        #
+#       should also be called from ~/.bashrc.                                  #
+#                                                                              #
+#       Mac OSX apparently append '.local' to its hostname, so it's grepped    #
+#       away when preparing the hostname part of the prompt.                   #
+#                                                                              #
+################################################################################
+
+#-------------------------------------------------------------------------------
+# 1. Prompt
+#-------------------------------------------------------------------------------
+
+# export ARCH=`uname -s | tr [:upper:] [:lower:]`
+
+export HOST=`hostname -s | sed -e 's/\.local//g' | tr "[a-z]" "[A-Z]"`
+
+if [ -z "$VIRTUAL_ENV" ]; then
+  if [ "$LOGNAME" = "root" ]; then
+    PS1='${HOST} ROOT$(__git_ps1 " (on %s)") ${PWD}>'
+  else
+    PS1='${HOST}$(__git_ps1 " (on %s)") ${PWD}>'
+  fi
+else
+  if [ "$LOGNAME" = "root" ]; then
+    PS1='${HOST} ROOT(`basename $VIRTUAL_ENV`$(__git_ps1 " (on %s)")) ${PWD}>'
+  else
+    PS1='${HOST} (`basename $VIRTUAL_ENV`$(__git_ps1 " (on %s)")) ${PWD}>'
+  fi
+fi
+PS2='  > '
+

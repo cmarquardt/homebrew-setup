@@ -1,0 +1,18 @@
+################################################################################
+#                                                                              #
+# Environment variable for the Calibre eBook reader and converter              #
+# ---------------------------------------------------------------              #
+#                                                                              #
+# See: https://manual.calibre-ebook.com/generated/en/cli-index.html            #
+#                                                                              #
+# C. Marquardt, Darmstadt, (C) 2001 - 2020                                     #
+#                                                                              #
+################################################################################
+
+#-------------------------------------------------------------------------------
+# 1. Add Calibre command line tools to the PATH
+#-------------------------------------------------------------------------------
+
+if [ -d /Applications/calibre.app/ ]; then
+   PATH="$PATH:/Applications/calibre.app/Contents/console.app/Contents/MacOS/"
+fi
