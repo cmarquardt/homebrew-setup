@@ -27,6 +27,10 @@ Initialisation scripts for`bash` are provided in the subdirectory tree with the 
 
 and place files to be sourced into `~/.bashrc.d` and `~/.profile.d`. In addition, the create new initialisation files `~/.bashrc` and `~/.bash_profile`, and finally create a directory to hold command line completions for the bash shell.
 
+## Setting up private tokens and `~/.ssh`
+
+Further installation steps (in particular for some homebrew packges from my tap) require access to protected git repositories; therefore, the configuration of `ssh` keys and GitHub/GitLab authentication tokens is required before the following steps can proceed.
+
 ## Install homebrew
 
 I've cloned the Homebrew installation scripts and updated them to install into `/opt/homebrew`; the repository is [on GitHub](https://github.com/cmarquardt/homebrew-install). To install from scratch:
