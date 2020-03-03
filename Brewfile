@@ -350,6 +350,8 @@ brew "cmarquardt/formulae/numpy4python@2", link: false
 brew "cmarquardt/formulae/eccodes-cm"
 # EUMETSAT Polar System (EPS) data format library and python interface
 brew "cmarquardt/formulae/eugene"
+# Some Python utilities
+brew "cmarquardt/formulae/python-utils"
 # Standards of Fundamental Astronomy (SOFA) library - C version
 brew "cmarquardt/formulae/sofa"
 # Standards of Fundamental Astronomy (SOFA) library - Fortran version
