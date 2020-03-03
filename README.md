@@ -39,31 +39,27 @@ I've cloned the Homebrew installation scripts and updated them to install into `
 
 Note: If the paths were not set up prior to running the above installation command, the script will issue a warning that `/opt/homebrew/bin` isn't in `PATH`. That's fine, but update `/etc/paths` now.
 
-## Install software (part I)
+## Install software
 
-The `Brewfile-main` Brewfile installs the majority of the software I use and also adds all required taps. Use it with
+The `Brewfile` installs the majority of the software I use and also adds all required taps. Use it with
 
-    brew bundle --file Brewfile-main
+    brew bundle --file Brewfile
+
+This will install a number of software packages including Python 2 and Python 3 together with numpy, along with several editors (Atom, Text Mate and Sublime Text).
 
 ## Install Python packages
 
-The main Brewfile also installs python@2; one may thus proceed with installing all Python packages (for both Python 3 and Python 2). The lists of python packages to be installed for both Pathon 2 and Python 3 are contained in the `python-requirements-n.n.txt`requirements files. They are used by the Python module installation script which is used like this:
+The next step is to install Python packages (for both Python 3 and Python 2). The lists of python packages to be installed for both Pathon 2 and Python 3 are contained in the `python-requirements-n.n.txt`requirement files, where `n.n`denotes the version of Python. The entire collection is installed with:
 
     ./install-python-packages.sh
 
 ## Install R packages
 
-Of course, we also have R packages; there installation proceeds with
+Of course, we also have R packages; they can be installed with
 
     ./install-r-packages.R
 
 Note that the packages to be installed are listed in the file `r-requirements.txt`.
-
-## Install software (part II)
-
-Finally, there are some packages that benefit in particular, form the Python 2 modules; they can be installed with
-
-    brew bundle --file Brewfile-secondary
 
 ## Tap into things
 

@@ -1,4 +1,0 @@
-tap "cmarquardt/formulae"
-# Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats, with netcdf and static library support
-brew "cmarquardt/formulae/eccodes-cm"
-brew "cmarquardt/formulae/python-packages"

@@ -279,7 +279,7 @@ brew "makedepend"
 # Small build system for use with gyp or CMake
 brew "ninja"
 # Fast and user friendly build system
-brew "meson"
+brew "meson", link: false
 # Programs that partition graphs and order matrices
 brew "metis"
 # FTP client with an advanced user interface
@@ -344,6 +344,10 @@ brew "vtk"
 brew "wxmac"
 # Interpreted, interactive, object-oriented programming language
 brew "cmarquardt/formulae/python@2"
+# Package for scientific computing with Python@2
+brew "cmarquardt/formulae/numpy4python@2", link: false
+# Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats, with netcdf, Python 2 interfaces and optional static libraries
+brew "cmarquardt/formulae/eccodes-cm"
 # EUMETSAT Polar System (EPS) data format library and python interface
 brew "cmarquardt/formulae/eugene"
 # Standards of Fundamental Astronomy (SOFA) library - C version
