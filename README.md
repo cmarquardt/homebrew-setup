@@ -43,9 +43,12 @@ Note: If the paths were not set up prior to running the above installation comma
 
 The `Brewfile` installs the majority of the software I use and also adds all required taps. Use it with
 
+    brew update
     brew bundle --file Brewfile
 
 This will install a number of software packages including Python 2 and Python 3 together with numpy, along with several editors (Atom, Text Mate and Sublime Text).
+
+**Caveat:** The installation of the older numpy version for Python@2 conflicts with the current numpy for Python 3 due to the `f2py`binary. For the Python@2 version, this executable is therefore renamed to `f2py2`which may lead to issues when the numpy distutils call this script.
 
 ## Install Python packages
 
