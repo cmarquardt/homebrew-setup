@@ -82,10 +82,7 @@ Sys.setenv(LDFLAGS = paste("-L", prefix, "/lib", sep = ""))
 
 packages <- read.requirements("r-requirements.txt")
 
-#install.packages(packages, repos = "http://cran.rstudio.com/", 
-#                           dependencies = "Depends", "Imports")
-
-cat(packages)
+install.packages(packages, repos = "http://cran.rstudio.com/")
 
 # 3. Reset environment variables
 # ------------------------------
