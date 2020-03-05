@@ -4,6 +4,7 @@ mvtnorm
 tidyverse      # Tidyverse
 shiny          # Web
 shinydashboard
+shinyWidgets
 DT
 htmlwidgets
 leaflet
@@ -13,11 +14,11 @@ locpol
 lpridge
 mice           # Multiple imputation
 robustbase     # Robust statistics
-robust
 robustreg
 rrcov
 rrcovNA
 rrcovHD
+robCompositions
 mvoutlier
 RobStatTM
 GSE
@@ -28,7 +29,6 @@ Rwave          # Time-Frequency Analysis
 SynchWave
 EMD
 ggvis          # Plotting
-shiny
 ggthemes
 hrbrthemes
 sp             # Spatial
