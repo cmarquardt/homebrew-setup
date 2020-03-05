@@ -7,7 +7,7 @@ cask "osxfuse"
 # C/C++ resolver library and DNS resolver utilities
 brew "adns"
 # ANother Tool for Language Recognition
-brew "antlr@2", link: true
+brew "antlr@2"
 # GNU multiple precision arithmetic library
 brew "gmp"
 # Integer Set Library for the polyhedral model
@@ -147,7 +147,7 @@ brew "nspr"
 # Libraries for security-enabled client and server applications
 brew "nss"
 # Package for scientific computing with Python
-brew "numpy", link: false
+brew "numpy"
 # Library for JPEG-2000 image manipulation
 brew "openjpeg"
 # Cross-platform application and UI framework
@@ -279,7 +279,7 @@ brew "makedepend"
 # Small build system for use with gyp or CMake
 brew "ninja"
 # Fast and user friendly build system
-brew "meson", link: false
+brew "meson"
 # Programs that partition graphs and order matrices
 brew "metis"
 # FTP client with an advanced user interface
@@ -319,7 +319,7 @@ brew "r"
 # Perl-powered file rename script with many helpful built-ins
 brew "rename"
 # Software for mathematics, science, and engineering
-brew "scipy", link: false
+brew "scipy"
 # Tool to create intelligent and beautiful documentation
 brew "sphinx-doc"
 # SQLite ODBC driver
@@ -345,7 +345,7 @@ brew "wxmac"
 # Interpreted, interactive, object-oriented programming language
 brew "cmarquardt/formulae/python@2"
 # Package for scientific computing with Python@2
-brew "cmarquardt/formulae/numpy4python@2", link: false
+brew "cmarquardt/formulae/numpy4python@2"
 # Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats, with netcdf, Python 2 interfaces and optional static libraries
 brew "cmarquardt/formulae/eccodes-cm"
 # EUMETSAT Polar System (EPS) data format library and python interface
