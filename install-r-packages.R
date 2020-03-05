@@ -30,6 +30,15 @@
 #       corresponding environment variables like PKG_CPPFLAGS
 #       (generic for R) or JPEG_LIBS (for jpeg).
 
+# 0. A helper function
+# --------------------
+
+read.requirements <- function(filename) {
+   lst <- gsub("\\s*#.*","", readLines(filename))
+   unique(lst[lst != ""])
+}
+
+
 # 1. Environment variables (for the ROracle compilation)
 # ------------------------------------------------------
 
@@ -68,10 +77,15 @@ Sys.setenv(LDFLAGS = paste("-L", prefix, "/lib", sep = ""))
 # Note: The following packages are 'parked' as I currently have not installed
 #       the required database backends or C APIs: RMySQL, ROracle
 
-package.data <- read.csv("r-requirements.txt")
-packages <- package.data$Package
+#package.data <- read.csv("r-requirements.txt")
+#packages <- package.data$Package
 
-install.packages(packages, repos = "http://cran.rstudio.com/")
+packages <- read.requirements("r-requirements.txt")
+
+#install.packages(packages, repos = "http://cran.rstudio.com/", 
+#                           dependencies = "Depends", "Imports")
+
+cat(packages)
 
 # 3. Reset environment variables
 # ------------------------------
