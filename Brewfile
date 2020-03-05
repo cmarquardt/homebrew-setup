@@ -342,6 +342,8 @@ brew "veclibfort"
 brew "vtk"
 # Cross-platform C++ GUI toolkit (wxWidgets for macOS)
 brew "wxmac"
+# General-purpose lossless data-compression library
+brew "zlib"
 # Interpreted, interactive, object-oriented programming language
 brew "cmarquardt/formulae/python@2"
 # Package for scientific computing with Python@2
