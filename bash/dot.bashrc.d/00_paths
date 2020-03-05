@@ -8,3 +8,13 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 eval `/usr/libexec/path_helper -s`
 PATH=".:$HOME/Library/bin:$PATH"
+
+# MAN_PATH
+# --------
+
+# Note: This seems to work out of the box, even for non-standard installation roots.
+
+# PKG_CONFIG_PATH
+# ---------------
+
+export PKG_CONFIG_PATH="`brew --prefix`/lib/pkgconfig:`brew --prefix`/opt/zlib/lib/pkgconfig"
