@@ -308,6 +308,8 @@ brew "parallel"
 brew "plotutils"
 # Library to work with the PDF file format
 brew "podofo"
+# Object-relational database system
+brew "postgres"
 # Convert PostScript and PDF files to editable vector graphics
 brew "pstoedit"
 # Tool to create Python bindings for C and C++ libraries
@@ -368,6 +370,7 @@ brew "cmarquardt/formulae/python-utils"
 brew "cmarquardt/formulae/sofa"
 # Standards of Fundamental Astronomy (SOFA) library - Fortran version
 brew "cmarquardt/formulae/sofa-fortran"
+#
 cask "atom"
 cask "sublime-text"
 cask "textmate"
