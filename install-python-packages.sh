@@ -1,5 +1,4 @@
 #! /usr/bin/env bash
-
 # Installing Python packages
 # ==========================
 #
@@ -56,23 +55,31 @@ python2 -m ensurepip --upgrade
 
 # 3.2 Core packages
 
+# Note: egenix-mx-base installs documentation and header files in /opt/homebrew/mx,
+#       so the Homebrew root directory must be writable. Then:
+
 pip2 install -r python-requirements-2.7.txt
 
 # 3.3 Special cases
 
+# Cartopy requires a veriable setting because pkg-config fails with an error
+
+CPPFLAGS="-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H" \
+   pip2 install Cartopy==0.17.0
+
 # urlgrabber requires pycurl, which has special needs for installation
 
-PYCURL_CURL_CONFIG=${HOMEBREW_PREFIX}/opt/curl/bin/curl-config \
-   pip2 install --no-binary :all: pycurl==7.43.0.5
-pip2 install urlgrabber==4.1.0
+#PYCURL_CURL_CONFIG=${HOMEBREW_PREFIX}/opt/curl/bin/curl-config \
+#   pip2 install --no-binary :all: pycurl==7.43.0.5
+#pip2 install urlgrabber==4.1.0
 
 # Basemap requires geos and needs to know where it sits
 
-GEOS_DIR=`brew --prefix geos` \
-   pip2 install https://github.com/matplotlib/basemap/archive/v1.1.0.tar.gz
+#GEOS_DIR=`brew --prefix geos` \
+#   pip2 install https://github.com/matplotlib/basemap/archive/v1.1.0.tar.gz
 
 # Oracle drivers are only installed if needed
 
-if [ "x$ORACLE_HOME" != "x" ]; then
-    FORCE_RPATH=yes pip2 install --no-binary :all: cx_Oracle==7.3.0
-fi
+#if [ "x$ORACLE_HOME" != "x" ]; then
+#    FORCE_RPATH=yes pip2 install --no-binary :all: cx_Oracle==7.3.0
+#fi
