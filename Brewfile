@@ -180,6 +180,12 @@ brew "git-gui"
 brew "git-imerge"
 # Git extension for versioning large files
 brew "git-lfs"
+# Interpreter for PostScript and PDF
+brew "ghostscript"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
+# Image processing tools collection
+brew "graphicsmagick"
 # Tools for manipulating and plotting geographic and Cartesian data
 brew "gmt"
 # GNU implementation of the famous stream editor
@@ -348,6 +354,8 @@ brew "zlib"
 brew "cmarquardt/formulae/python@2"
 # Package for scientific computing with Python@2
 brew "cmarquardt/formulae/numpy4python@2"
+# Software for mathematics, science, and engineering for Python@2
+brew "cmarquardt/formulae/scipy4python@2"
 # Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats, with netcdf, Python 2 interfaces and optional static libraries
 brew "cmarquardt/formulae/eccodes-cm"
 # EUMETSAT Polar System (EPS) data format library and python interface
