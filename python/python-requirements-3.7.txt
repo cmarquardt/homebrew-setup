@@ -63,6 +63,7 @@ pipdeptree
 pluggy
 prometheus-client
 prompt-toolkit
+psycopg2
 ptyprocess
 py
 Pygments
