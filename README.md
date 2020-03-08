@@ -31,7 +31,7 @@ and place files to be sourced into `~/.bashrc.d` and `~/.profile.d`. In addition
 
 Further installation steps (in particular for some homebrew packges from my tap) require access to protected git repositories; therefore, the configuration of `ssh` keys and GitHub/GitLab authentication tokens is required before the following steps can proceed.
 
-## Install homebrew
+## Installing homebrew
 
 I've cloned the Homebrew installation scripts and updated them to install into `/opt/homebrew`; the repository is [on GitHub](https://github.com/cmarquardt/homebrew-install). To install from scratch:
 
@@ -39,7 +39,7 @@ I've cloned the Homebrew installation scripts and updated them to install into `
 
 Note: If the paths were not set up prior to running the above installation command, the script will issue a warning that `/opt/homebrew/bin` isn't in `PATH`. That's fine, but update `/etc/paths` now.
 
-## Install software
+## Installing brewed software
 
 The `Brewfile` installs the majority of the software I use and also adds all required taps. Use it with
 
@@ -50,19 +50,53 @@ This will install a number of software packages including Python 2 and Python 3 
 
 **Caveat:** The installation of the older numpy version for Python@2 conflicts with the current numpy for Python 3 due to the `f2py`binary. For the Python@2 version, this executable is therefore renamed to `f2py2`which may lead to issues when the numpy distutils call this script.
 
-## Install Python packages
+## Installing Python packages
 
 The next step is to install Python packages (for both Python 3 and Python 2). The lists of python packages to be installed for both Pathon 2 and Python 3 are contained in the `python-requirements-n.n.txt`requirement files, where `n.n`denotes the version of Python. The entire collection is installed with:
 
     ./install-python-packages.sh
 
-## Install R packages
+## Installing R packages
 
 Of course, we also have R packages; they can be installed with
 
     ./install-r-packages.R
 
 Note that the packages to be installed are listed in the file `r-requirements.txt`.
+
+## Setting up virtual environments
+
+At present, `virtualenv` and `virtualenvwrapper` are installed for both Python2 and Python3. Because the modules for Python2 is installed last, however, the actual commands are using Python2. Because of this, the virtualenv and virtualenvwrapper scripts by default install Python2-based virtual environments.
+
+After opening up a shell for the first time after `virtualenvwrapper` has been installed, the shell initialisation script will load the `virtualenvwrapper.sh` startup file and populate the root directory of the virtual environments (through the environment variable `WORKON_HOME`). ***After*** this has happened, copy the startup files for virtual environments into this directory (they will overwrite the default versions of these files which don't do anything):
+
+    cp ./virtualenvs/*activate $WORKON_HOME
+
+Notes:
+
+ - It should be possible to install `virtualenv`, `virtualenv-clone` and `virtualenvwrapper` for Python3 only, and then use virtualenv's configuration file `virtualenv.ini` to ensure that Python2 virtual environments are created by default. I did not investigate this much because virtualenvwrapper.sh searches for `python` as executable for Python; and that one points to Python2 right now.
+
+## Setting up Jupyter Lab and Notebooks
+
+Create a (jointly used) configuration file for Jupyter Lab and Notebook with
+
+    jupyter notebook --generate-config
+
+and edit the resulting file `~/.jupyter/jupyter_notebook_config.py` to 
+
+ - set the location of the notebooks, 
+ - set the port the notebook server serves, 
+ - not open the browser when launching the server, 
+ - not require a token upon first startup.
+
+To set up a Python kernel using a dedicated virtual environment, create a virtual environment based on the Python version required (Python 2 or Python 2) - say, a Python 2 environment named `yaros-devel`. Then:
+
+    workon yaros-devel  
+    python2 -m ipykernel install --user --name yaros-devel --display-name "Python 2 (yaros-devel)”
+
+A kernel for R can be installed by starting R ***from the command line*** (the environment variables are required, so doing this from RStudio won't work), and then running
+
+    > IRkernel::installspec()
 
 ## Tap into things
 
