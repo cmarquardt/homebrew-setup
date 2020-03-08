@@ -69,6 +69,7 @@ formatR
 rticles
 roxygen2
 repr           # IRKernel for Jupyter Notebooks
+IRkernel
 IRdisplay
 evaluate
 pbdZMQ
