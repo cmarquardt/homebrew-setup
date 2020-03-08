@@ -53,6 +53,7 @@ udunits2       # Units
 units
 #"DBI          # Data bases
 RSQLite
+RPostgres
 fuzzyjoin
 devtools       # Development tools
 packrat

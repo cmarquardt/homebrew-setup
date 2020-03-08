@@ -77,20 +77,30 @@ Sys.setenv(LDFLAGS = paste("-L", prefix, "/lib", sep = ""))
 # Note: The following packages are 'parked' as I currently have not installed
 #       the required database backends or C APIs: RMySQL, ROracle
 
-#package.data <- read.csv("r-requirements.txt")
-#packages <- package.data$Package
-
-packages <- read.requirements("r-requirements.txt")
+packages <- read.requirements("R/r-requirements.txt")
 
 install.packages(packages, repos = "http://cran.rstudio.com/")
 
-# 3. Reset environment variables
+# 3. ROracle
+# ----------
+
+# Note: The following lines require to have Oracle's Instant Client to be installed,
+#       with ORACLE_HOME pointing to the instgallation directory.
+
+oracle_home <- Sys.getenv("ORACLE_HOME")
+
+Sys.setenv(OCI_LIB = oracle_home)
+Sys.unsetenv("ORACLE_HOME")
+
+install.packages('R/ROracle_1.3-2.tar.gz', repos = NULL)
+
+# 4. Reset environment variables
 # ------------------------------
 
 # Note: As before, the following lines are for ROracle
 
-#Sys.setenv(ORACLE_HOME = oracle_home)
-#Sys.unsetenv("OCI_LIB")
+Sys.setenv(ORACLE_HOME = oracle_home)
+Sys.unsetenv("OCI_LIB")
 
 #Sys.unsetenv("JPEG_LIBS")
 
