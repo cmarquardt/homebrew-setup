@@ -55,6 +55,7 @@ units
 #"DBI          # Data bases
 RSQLite
 RPostgres
+pool
 fuzzyjoin
 devtools       # Development tools
 packrat
