@@ -68,6 +68,7 @@ RcppCNPy
 RUnit
 bookdown       # Documentation
 formatR
+kableExtra
 rticles
 roxygen2
 repr           # IRKernel for Jupyter Notebooks
