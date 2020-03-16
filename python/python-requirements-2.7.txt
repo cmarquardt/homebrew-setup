@@ -1,8 +1,8 @@
 # Basics
 
-virtualenv
-virtualenv-clone
-virtualenvwrapper
+virtualenv==16.7.10
+virtualenv-clone==0.5.3
+virtualenvwrapper==4.8.4
 
 # Development tools
 
@@ -112,9 +112,9 @@ git+https://github.com/gldnspud/virtualenv-pythonw-osx
 # jsonschema==3.2.0
 # ptyprocess==0.6.0
 # terminado==0.8.3
-# jupyter-client-5.3.4 
-# jupyter-core-4.6.3 
-# pyzmq-19.0.0 
+# jupyter-client-5.3.4
+# jupyter-core-4.6.3
+# pyzmq-19.0.0
 # tornado-5.1.1
 
 ipython==5.9.0
