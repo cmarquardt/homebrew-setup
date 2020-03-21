@@ -11,14 +11,14 @@
 #  - all version numbers are considered to be frozen;
 #  - virtualenv, virtualenvwrapper and friends are installed for for both
 #    Python 2 and Python 3 as they rae used when virtual environments are
-#    build for the respective python; however, the Python 2 version is 
+#    build for the respective python; however, the Python 2 version is
 #    later on as that makes the installed executable/shell script to install
 #    Python 2 virtual environments by default;
-#  - numpy and scipy are installed via pip, not brew (which doesn't support 
-#    Python 2 any more);
+#  - numpy and scipy are installed via brew, with me maintaining packages
+#    for python@2;
 #  - some special cases are treated outside of the requirements file below
 #    as they require special environment variable settings or similar;
-#  # pip utilities (pip-date, pip-chill, ...) are installed for Python 3.
+#  - pip utilities (pip-date, pip-chill, ...) are installed for Python 3.
 #
 # Notes for Python 3.7:
 # ---------------------
@@ -44,7 +44,10 @@ pip3 install -r python/python-requirements-3.7.txt
 
 # 2.3 Special cases
 
-# None so far...
+# Gdal version must match of the installed brewed version
+
+GDAL_VERSION=`brew list --versions gdal | sed -e 's/gdal //g' -e 's/\_[123456789]//g'`
+pip3 install gdal==${GDAL_VERSION}
 
 # 3. Python 2.7
 # -------------

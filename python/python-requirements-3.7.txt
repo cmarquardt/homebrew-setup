@@ -5,10 +5,12 @@ backcall
 bleach
 brewer2mpl
 certifi
+cftime
 chardet
 Click
 colorclass
 cycler
+cython
 decorator
 defusedxml
 distlib
@@ -17,11 +19,11 @@ entrypoints
 filelock
 fortran-language-server
 future
-GDAL
 ggplot
 gitdb
 gitdb2
 GitPython
+h5py
 idna
 importlib-metadata
 ipykernel
@@ -44,6 +46,7 @@ meson
 mistune
 nbconvert
 nbformat
+netCDF4
 notebook
 numpy
 packaging
