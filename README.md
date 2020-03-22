@@ -43,12 +43,15 @@ Note: If the paths were not set up prior to running the above installation comma
 
 The `Brewfile` installs the majority of the software I use and also adds all required taps. Use it with
 
+    cd homebrew
     brew update
     brew bundle --file Brewfile
 
 This will install a number of software packages including Python 2 and Python 3 together with numpy, along with several editors (Atom, Text Mate and Sublime Text).
 
 **Caveat:** The installation of the older numpy version for Python@2 conflicts with the current numpy for Python 3 due to the `f2py`binary. For the Python@2 version, this executable is therefore renamed to `f2py2`which may lead to issues when the numpy distutils call this script.
+
+**Note:** At the time of writing, Proj v7.0.0 as installed via Homebrew has a faulty `pkg-config` configuration file in `/opt/homebrew/lib/pkgconfig/proj.pc`. The latter is actually a link into the Cellar for Proj and write protected. A manually corrected version of the file is available in the `homebrew` directory and should be installed manually before further software using it i installed (in particular Python and R packages).
 
 ## Installing Python packages
 
@@ -82,16 +85,16 @@ Create a (jointly used) configuration file for Jupyter Lab and Notebook with
 
     jupyter notebook --generate-config
 
-and edit the resulting file `~/.jupyter/jupyter_notebook_config.py` to 
+and edit the resulting file `~/.jupyter/jupyter_notebook_config.py` to
 
- - set the location of the notebooks, 
- - set the port the notebook server serves, 
- - not open the browser when launching the server, 
+ - set the location of the notebooks,
+ - set the port the notebook server serves,
+ - not open the browser when launching the server,
  - not require a token upon first startup.
 
 To set up a Python kernel using a dedicated virtual environment, create a virtual environment based on the Python version required (Python 2 or Python 2) - say, a Python 2 environment named `yaros-devel`. Then:
 
-    workon yaros-devel  
+    workon yaros-devel
     python2 -m ipykernel install --user --name yaros-devel --display-name "Python 2 (yaros-devel)”
 
 A kernel for R can be installed by starting R ***from the command line*** (the environment variables are required, so doing this from RStudio won't work), and then running
@@ -113,4 +116,4 @@ I created the brewfiles with
 
     brew bundle dump --describe
 
-which creates `./Brewfile`; manual editing did the rest. 
+which creates `./Brewfile`; manual editing did the rest.
