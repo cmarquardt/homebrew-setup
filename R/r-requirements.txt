@@ -1,26 +1,32 @@
+htmlwidgets
 Hmisc          # Basic things
+svd
 ctv
 mvtnorm
+spam
+mclust
 tidyverse      # Tidyverse
 shiny          # Web
 shinydashboard
 shinyWidgets
 DT
-htmlwidgets
 leaflet
 akima          # Polynomial fitting & smoothing
 locfit
 locpol
 lpridge
+kernlab
 mice           # Multiple imputation
 robustbase     # Robust statistics
 robustreg
+robustHD
 rrcov
 rrcovNA
 rrcovHD
 robCompositions
 mvoutlier
 RobStatTM
+cellWise
 GSE
 xts            # Time series
 zoo
@@ -33,7 +39,7 @@ ggthemes
 hrbrthemes
 cowplot
 sp             # Spatial
-sf
+#sf                 # ...special case - activate again later on...
 raster
 maptools
 spacetime
@@ -48,7 +54,7 @@ ggspatial
 rasterVis
 reticulate     # Python interfacing
 feather        # Data formats
-hdf5r
+#hdf5r              # ...special case - doesn't compile with HDF5 v1.12 right now (March 2020)
 ncdf4
 udunits2       # Units
 units
