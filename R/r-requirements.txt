@@ -34,10 +34,14 @@ astsa
 Rwave          # Time-Frequency Analysis
 SynchWave
 EMD
-ggvis          # Plotting
+ggplot2        # Plotting
+ggvis
+ggforce
 ggthemes
 hrbrthemes
 cowplot
+patchwork
+isoband
 sp             # Spatial
 #sf                 # ...special case - activate again later on...
 raster
