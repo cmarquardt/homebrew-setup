@@ -51,6 +51,8 @@ This will install a number of software packages including Python 2 and Python 3 
 
 **Caveat:** The installation of the older numpy version for Python@2 conflicts with the current numpy for Python 3 due to the `f2py`binary. For the Python@2 version, this executable is therefore renamed to `f2py2`which may lead to issues when the numpy distutils call this script.
 
+**Note:** Apparently, gdal includes Python3 bindings and install python scripts to `/opt/homebrew/bin`. This fails if another gdal for python is available; therefore, the brew formula has to be linked with `brew link --overwrite gdal` if being reinstalled.
+
 **Note:** At the time of writing, Proj v7.0.0 as installed via Homebrew has a faulty `pkg-config` configuration file in `/opt/homebrew/lib/pkgconfig/proj.pc`. The latter is actually a link into the Cellar for Proj and write protected. A manually corrected version of the file is available in the `homebrew` directory and should be installed manually before further software using it i installed (in particular Python and R packages).
 
 ## Installing Python packages
