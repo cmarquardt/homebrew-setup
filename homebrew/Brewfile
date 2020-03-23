@@ -32,8 +32,6 @@ brew "arpack"
 brew "szip"
 # File format designed to store large amounts of data
 brew "hdf5"
-# C++ linear algebra library
-brew "armadillo"
 # Automatic configure script builder
 brew "autoconf"
 # Tool for generating GNU Standards-compliant Makefiles
