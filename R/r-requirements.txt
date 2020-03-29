@@ -23,6 +23,7 @@ robustHD
 rrcov
 rrcovNA
 rrcovHD
+robcor
 robCompositions
 mvoutlier
 RobStatTM
@@ -48,6 +49,7 @@ raster
 maptools
 spacetime
 lwgeom
+rgeos
 rgdal
 rosm
 maps           # Maps
