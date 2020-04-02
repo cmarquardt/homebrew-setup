@@ -43,6 +43,7 @@ hrbrthemes
 cowplot
 patchwork
 isoband
+magick
 sp             # Spatial
 #sf                 # ...special case - activate again later on...
 raster
