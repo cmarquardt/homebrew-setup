@@ -15,6 +15,7 @@ decorator
 defusedxml
 distlib
 ecmwf-api-client
+cdsapi
 entrypoints
 filelock
 fortran-language-server
