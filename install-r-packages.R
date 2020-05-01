@@ -122,13 +122,18 @@ Sys.setenv(LDFLAGS = paste("-L", prefix, "/lib", sep = ""))
 
 install.packages("Rcpp", repos = "https://RcppCore.github.io/drat")
 
-# 1.3 Special case: Simple features - will be fixed with 0.9 (or whatever)
-
-# See: https://github.com/r-spatial/sf/issues/1298
+# 1.3 Special case: Bugs fixed on Github but not yet released)
 
 install.packages("remotes", repos = "http://cran.rstudio.com")
 
-remotes::install_github("r-spatial/sf")
+# See: https://github.com/r-spatial/sf/issues/1298 (closed 13 Mar 2020; contained in v0.9-x on CRAN)
+# remotes::install_github("r-spatial/sf")
+
+# See https://github.com/mjwoods/RNetCDF/issues/75 (closed 29 Apr 2020, not yet released on CRAN)
+remotes::install_github("mjwoods/RNetCDF")
+
+# See https://github.com/hhoeflin/hdf5r/issues/142 (closed 24 Mar 2020; not yet released on CRAN)
+remotes::install_github("hhoeflin/hdf5r")
 
 # 2. Install packages from CRAN
 # -----------------------------
