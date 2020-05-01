@@ -16,6 +16,8 @@ defusedxml
 distlib
 ecmwf-api-client
 cdsapi
+cftime
+cfgrib
 entrypoints
 filelock
 fortran-language-server
@@ -43,7 +45,6 @@ jupyterlab-server
 kiwisolver
 MarkupSafe
 matplotlib
-meson
 mistune
 nbconvert
 nbformat
@@ -105,4 +106,5 @@ virtualenv-clone==0.5.3
 virtualenvwrapper==4.8.4
 wcwidth
 webencodings
+xarray
 zipp
