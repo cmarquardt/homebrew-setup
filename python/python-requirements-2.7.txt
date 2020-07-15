@@ -124,6 +124,8 @@ ipython==5.9.0
 ipython-genutils==0.2.0
 ipykernel==4.10.1
 
+ipython-sql==0.3.9
+
 # Dependencies
 
 # Notes:
