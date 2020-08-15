@@ -9,21 +9,21 @@
 #
 # Recompile all installed R packages from source without updating.
 #
-# This scripts performs a recompilation of all installed R packages 
+# This scripts performs a recompilation of all installed R packages
 # for their currently installed versions; that is, packages are not
 # automatically updated. The typical usecase is an updated of the
 # (Fortran or C/C++) compiler which breaks the existing packages due
 # to changes in the location of shared libraries; this is a problem
 # on macOS and with Homebrew.
 #
-# There is no sophisticated dependency resolution; packages failing 
+# There is no sophisticated dependency resolution; packages failing
 # to recompile will be tried again in a second (or third, or...) pass
-# through the remaining packages. If no further packages can be 
+# through the remaining packages. If no further packages can be
 # installed, the scriptterminates (and then tries to install a custom
 # version of ROracle).
 #
-# At the end of the process, the list of the failed packages and their 
-# version is printed.  
+# At the end of the process, the list of the failed packages and their
+# version is printed.
 
 # 1. Libraries and a helper function
 # ----------------------------------
@@ -47,13 +47,14 @@ install.package.list <- function(plst, lib) {
     for (i in seq_along(plst$Package)) {
 
         package <- plst[i, ] # extract i-th row
-        
+
         tryCatch(
             error = function(cnd) {
                 failed <<- rbind(failed, package)  # This function is not evaluated in the environment of tryCatch, so <<- is required...
             },
-            {res <- remotes::install_version(package$Package, 
+            {res <- remotes::install_version(package$Package,
                                      version = package$Version,
+                                     dependencies = FALSE,
                                      quiet = TRUE,
                                      type = "source",
                                      lib = lib,
@@ -98,8 +99,8 @@ Sys.setenv(LDFLAGS = paste("-L", prefix, "/lib", sep = ""))
 
 lib      <- .libPaths()[1]
 
-packages <- as.data.frame(installed.packages(lib), stringsAsFactors = FALSE) %>% 
-                 dplyr::select(Package, Version) %>% 
+packages <- as.data.frame(installed.packages(lib), stringsAsFactors = FALSE) %>%
+                 dplyr::select(Package, Version) %>%
                  dplyr::filter(Package != "ROracle")
 
 #packages <- packages[(nrow(packages)-5):nrow(packages), ]
