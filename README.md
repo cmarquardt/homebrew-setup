@@ -53,7 +53,11 @@ This will install a number of software packages including Python 2 and Python 3 
 
 **Note:** Apparently, gdal includes Python3 bindings and install python scripts to `/opt/homebrew/bin`. This fails if another gdal for python is available; therefore, the brew formula has to be linked with `brew link --overwrite gdal` if being reinstalled.
 
-**Note:** At the time of writing, Proj v7.0.0 as installed via Homebrew has a faulty `pkg-config` configuration file in `/opt/homebrew/lib/pkgconfig/proj.pc`. The latter is actually a link into the Cellar for Proj and write protected. A manually corrected version of the file is available in the `homebrew` directory and should be installed manually before further software using it i installed (in particular Python and R packages).
+**Note:** Some python packages make attempts to create directories immediately below /opt/homebrew in order to install documentation; examples are mx.Base and cx_Oracle. In order for this to work, run
+
+    sudo chown marq:admin /opt/homebrew
+
+before installing the python packages.
 
 ## Installing Python packages
 
@@ -94,7 +98,15 @@ and edit the resulting file `~/.jupyter/jupyter_notebook_config.py` to
  - not open the browser when launching the server,
  - not require a token upon first startup.
 
-To set up a Python kernel using a dedicated virtual environment, create a virtual environment based on the Python version required (Python 2 or Python 2) - say, a Python 2 environment named `yaros-devel`. Then:
+As some parts of the installation of Jupyter and its extensions are located in the system folders of the Python 3 installation; if the latter is newly build or upgraded (e.g., via Homebrew), some setup needs to be done:
+
+    # Re-build jupyterlab
+    jupyter lab build
+
+    # Re-build jupyterlab templates
+    jupyter labextension install jupyterlab_templates
+
+To set up a Python kernel using a dedicated virtual environment, create a virtual environment based on the Python version required (Python 2 or Python 3) - say, a Python 2 environment named `yaros-devel`. Then:
 
     workon yaros-devel
     python2 -m ipykernel install --user --name yaros-devel --display-name "Python 2 (yaros-devel)”
