@@ -5,7 +5,7 @@
 #
 # C. Marquardt, Darmstadt
 #
-# 22 March 2020
+# 25 October 2020
 #
 # This script (re-)installs a default set of R packages in a brewed
 # environment. I run it to
@@ -80,7 +80,6 @@ read.requirements <- function(filename) {
    unique(lst[lst != ""])
 }
 
-
 # 1. Environment variables
 # ------------------------
 
@@ -97,30 +96,9 @@ Sys.setenv(PKG_LIBS = paste("-L", prefix, "/lib", sep = ""))
 Sys.setenv(CPPFLAGS = paste("-I", prefix, "/include", sep = ""))
 Sys.setenv(LDFLAGS = paste("-L", prefix, "/lib", sep = ""))
 
-# Temporary support for HDF5@1.10 so that hdf5r can be build (this doesn't work, though...)
+# 1.2 Rcpp
 
-#path_gen <- Sys.getenv("PATH")
-#path_hdf <- paste(prefix, "/opt/hdf5@1.10/bin", sep = "")
-
-#Sys.setenv(PATH = paste(path_hdf, path_gen, sep = ":"))
-
-#inc_gen <- paste("-I", prefix, "/include", sep = "")
-#inc_hdf <- paste("-I", prefix, "/opt/hdf5@1.10/include", sep = "")
-
-#Sys.setenv(CPPFLAGS = paste(inc_hdf, inc_gen, sep = ":"))
-#Sys.setenv(PKG_CPPFLAGS = paste(inc_hdf, inc_gen, sep = ":"))
-
-#lib_gen <- paste("-L", prefix, "/lib", sep = "")
-#lib_hdf <- paste("-L", prefix, "/opt/hdf5@1.10/lib", sep = "")
-
-#Sys.setenv(LDFLAGS = paste(lib_hdf, lib_gen, sep = ":"))
-#Sys.setenv(PKG_LDFLAGS = paste(lib_hdf, lib_gen, sep = ":"))
-
-# 1.2 Development version of Rcpp - will be fixed with 1.0.5 (or whatever)
-
-# See: https://community.rstudio.com/t/later-package-not-compiling-on-macos-unknown-type-name-uuid-t/57171
-
-install.packages("Rcpp", repos = "https://RcppCore.github.io/drat")
+install.packages("Rcpp", repos = "http://cran.rstudio.com")
 
 # 1.3 Special case: Bugs fixed on Github but not yet released)
 
@@ -129,11 +107,11 @@ install.packages("remotes", repos = "http://cran.rstudio.com")
 # See: https://github.com/r-spatial/sf/issues/1298 (closed 13 Mar 2020; contained in v0.9-x on CRAN)
 # remotes::install_github("r-spatial/sf")
 
-# See https://github.com/mjwoods/RNetCDF/issues/75 (closed 29 Apr 2020, not yet released on CRAN)
-remotes::install_github("mjwoods/RNetCDF")
+# See https://github.com/mjwoods/RNetCDF/issues/75 (closed 29 Apr 2020, contained in v2.3-1 on CRAN)
+# remotes::install_github("mjwoods/RNetCDF")
 
-# See https://github.com/hhoeflin/hdf5r/issues/142 (closed 24 Mar 2020; not yet released on CRAN)
-remotes::install_github("hhoeflin/hdf5r")
+# See https://github.com/hhoeflin/hdf5r/issues/142 (closed 24 Mar 2020; probably released with v1.3.3 on CRAN)
+# remotes::install_github("hhoeflin/hdf5r")
 
 # 2. Install packages from CRAN
 # -----------------------------

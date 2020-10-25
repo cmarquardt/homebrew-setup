@@ -62,9 +62,9 @@ ggspatial
 rasterVis
 reticulate     # Python interfacing
 feather        # Data formats
-#hdf5r              # ...special case - doesn't compile with HDF5 v1.12 right now (fixed late March 2020, not yet released)
+hdf5r
 ncdf4
-#RNetCDF            # ...special case - bugfix for netCDF 4.7.4 not yet released on CRAN (fixed late April 2020, not yet released)
+RNetCDF
 tidync
 udunits2       # Units
 units
