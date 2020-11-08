@@ -41,7 +41,9 @@
 
 HOMEBREW_PREFIX=`brew --prefix`
 
-# 2. Python 3.7
+export HDF5_DIR=${HOMEBREW_PREFIX}  # Apparently required for netCDF4
+
+# 2. Python 3.x
 # -------------
 
 # 2.1 Core packages - numpy and gdal require special treatment...
