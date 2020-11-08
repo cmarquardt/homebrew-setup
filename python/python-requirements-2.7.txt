@@ -99,7 +99,7 @@ pyproj==2.2.2
 
 # Graphics
 
-Pillow==6.2.2
+Pillow==7.1.0
 matplotlib==2.2.5
 pyshp==2.1.0
 Shapely==1.7.0
