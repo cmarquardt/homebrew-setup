@@ -43,6 +43,7 @@ jupyter-core
 jupyter-nbextensions-configurator
 jupyterlab
 jupyterlab-server
+jupyterlab_templates
 kiwisolver
 MarkupSafe
 matplotlib
