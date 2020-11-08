@@ -40,7 +40,7 @@ python3 -m ensurepip --upgrade
 
 # 2.2 Core packages
 
-pip3 install -r python/python-requirements-3.7.txt
+pip3 install -r python/python-requirements-3.x.txt
 
 # 2.3 Special cases
 
