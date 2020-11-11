@@ -39,6 +39,7 @@ EMD
 ggplot2        # Plotting
 ggvis
 ggforce
+ggpubr
 ggthemes
 hrbrthemes
 cowplot
