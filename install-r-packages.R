@@ -133,7 +133,23 @@ Sys.unsetenv("ORACLE_HOME")
 
 install.packages('R/ROracle_1.3-2.tar.gz', repos = NULL)
 
-# 4. Reset environment variables
+# 4. Install my own packages
+# --------------------------
+
+remotes::install_git("https://gitlab.eumetsat.int/ro/R/robtools.git",
+                     credentials = git2r::cred_token(token = "GITLAB_EUMETSAT_READONLY_TOKEN"))
+
+remotes::install_git("https://gitlab.eumetsat.int/ro/R/mdbtools.git",
+                     credentials = git2r::cred_token(token = "GITLAB_EUMETSAT_READONLY_TOKEN"))
+
+ # FIXME: This should work, but it doesn't...
+ #remotes::install_git("https://gitlab.com/marq/yaros-rtools.git",
+ #                     credentials = git2r::cred_token(token = "GITLAB_COM_READONLY_TOKEN"))
+
+remotes::install_git("https://gitlab.eumetsat.int/marq/R-cmarticles.git",
+                     credentials = git2r::cred_token(token = "GITLAB_EUMETSAT_READONLY_TOKEN"))
+
+# 5. Reset environment variables
 # ------------------------------
 
 # Note: As before, the following lines are for ROracle
