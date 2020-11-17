@@ -1,14 +1,14 @@
 # Settung up Homebrew (in a non-default location)
 
-I like Homebrew, but I don't like its maintainer's of using `/usr/local` as an ordinary user, interfering with year-long best practices in the Unix world. I instead would like to have it installed in another place (which may belong to an ordinary user), say `/opt/homebrew`.
+I like Homebrew, but I don't like its maintainer's of using `/usr/local` as an ordinary user, interfering with year-long best practices in the Unix world. I instead would like to have it installed in another place (which may belong to an ordinary user), say `/opt/brew`.
 
 This requires a slightly different installation process, but afterwards most things work as they should, despite the different `brew --prefix` directory.
 
 ## Setting up PATHs
 
-Obviously, `/opt/homebrew/bin` must be in the PATH. To accomplish this, edit the file `/etc/paths` with `sudo` and insert `/opt/homebrew/bin`. In my case, the resulting `/etc/paths` is:
+Obviously, `/opt/brew/bin` must be in the PATH. To accomplish this, edit the file `/etc/paths` with `sudo` and insert `/opt/brew/bin`. In my case, the resulting `/etc/paths` is:
 
-    /opt/homebrew/bin
+    /opt/brew/bin
     /usr/local/bin
     /usr/bin
     /bin
@@ -17,7 +17,9 @@ Obviously, `/opt/homebrew/bin` must be in the PATH. To accomplish this, edit the
 
 Note that the executables in omebrew now take precedence over all other ones, including those installed in `/usr/local/bin`. It might be better to insert the Homepref prefix only after `/usr/local/bin` so that software installed in `/usr/local/bin` takes precedence; that probably depends on how is using Homebrew and `/usr/local`. I tend to install software to `/usr/local` that is not available in Homebrew (e.g. (La)TeX); thus there is usually no conflict.
 
-One conflict I did experience once is Docker; I use the installer from Docker Hub which places its command line tools into `/usr/local`. For a while, I had one Homebrew package that dependen on their Docker, so its installation would place a second set of Docker command line tools into Hombrew, shadowing the official ones. One workaround would be to install that Homebrew package without dependencies. On the other hand, I actually never experienced any real problems with Docker while I had bot sets of command line tools as the Homebrew version was reasonably aligned with offcial Docker releases.
+One conflict I did experience once is Docker; I use the installer from Docker Hub which places its command line tools into `/usr/local`. For a while, I had one Homebrew package that dependen on their Docker, so its installation would place a second set of Docker command line tools into Homebrew, shadowing the official ones. One workaround would be to install that Homebrew package without dependencies. On the other hand, I actually never experienced any real problems with Docker while I had bot sets of command line tools as the Homebrew version was reasonably aligned with offcial Docker releases.
+
+Finally, a note: I'd prefer `/opt/homebrew` as my prefix and in fact I used that for several years. However, in late 2020, the Homebrew maintainers decided to use this as default path for ARM-based Macs. The `brew` command now prohibits installing packages on Intel Macs into this directory - so I changed my prefix to `/opt/brew`.
 
 ## Setting up the shell
 
@@ -37,7 +39,7 @@ I've cloned the Homebrew installation scripts and updated them to install into `
 
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/cmarquardt/homebrew-install/feature/install-elsewhere/install)"
 
-Note: If the paths were not set up prior to running the above installation command, the script will issue a warning that `/opt/homebrew/bin` isn't in `PATH`. That's fine, but update `/etc/paths` now.
+Note: If the paths were not set up prior to running the above installation command, the script will issue a warning that `/opt/brew/bin` isn't in `PATH`. That's fine, but update `/etc/paths` now.
 
 ## Installing brewed software
 
@@ -47,15 +49,17 @@ The `Brewfile` installs the majority of the software I use and also adds all req
     brew update
     brew bundle --file Brewfile
 
-This will install a number of software packages including Python 2 and Python 3 together with numpy, along with several editors (Atom, Text Mate and Sublime Text).
+This will install a number of software packages including Python 2 and Python 3 together with numpy, along with several editors (Atom, Textmate and Sublime Text).
+
+**Caveat:** If the editors are already installed, the `brew cask install` commands for them will fail. The way around this is to move the corresponding folders from `/Applications` into the bin and rerun the respective commands in order to install the command line tools as well.
 
 **Caveat:** The installation of the older numpy version for Python@2 conflicts with the current numpy for Python 3 due to the `f2py`binary. For the Python@2 version, this executable is therefore renamed to `f2py2`which may lead to issues when the numpy distutils call this script.
 
-**Note:** Apparently, gdal includes Python3 bindings and install python scripts to `/opt/homebrew/bin`. This fails if another gdal for python is available; therefore, the brew formula has to be linked with `brew link --overwrite gdal` if being reinstalled.
+**Note:** Apparently, gdal includes Python3 bindings and install python scripts to `/opt/brew/bin`. This fails if another gdal for python is available; therefore, the brew formula has to be linked with `brew link --overwrite gdal` if being reinstalled.
 
 **Note:** Some python packages make attempts to create directories immediately below /opt/homebrew in order to install documentation; examples are mx.Base and cx_Oracle. In order for this to work, run
 
-    sudo chown marq:admin /opt/homebrew
+    sudo chown marq:admin /opt/brew
 
 before installing the python packages.
 
