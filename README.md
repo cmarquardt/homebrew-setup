@@ -37,7 +37,7 @@ Further installation steps (in particular for some homebrew packges from my tap)
 
 I've cloned the Homebrew installation scripts and updated them to install into `/opt/homebrew`; the repository is [on GitHub](https://github.com/cmarquardt/homebrew-install). To install from scratch:
 
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/cmarquardt/homebrew-install/feature/install-elsewhere/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cmarquardt/homebrew-install/feature/install-elsewhere/install.sh)"
 
 Note: If the paths were not set up prior to running the above installation command, the script will issue a warning that `/opt/brew/bin` isn't in `PATH`. That's fine, but update `/etc/paths` now.
 
