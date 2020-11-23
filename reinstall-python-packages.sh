@@ -70,7 +70,7 @@ pip3 install --force-reinstall --no-deps gdal==${GDAL_VERSION}
 
 # 3.1 Core packages - various packages require special treatment
 
-pip2 install --force-reinstall --no-deps $(pip2 freeze | grep -ivE 'numpy|scipy|basemap|cartopy|gdal|cx_oracle|eccodes|eugene|fix-osx-virtualenv')
+pip2 install --force-reinstall --no-deps $(pip2 freeze | grep -ivE 'numpy|scipy|basemap|cartopy|gdal|sqlitebck|cx_oracle|pycurl|urlgrabber|eccodes|eugene|fix-osx-virtualenv')
 
 # 3.2 Special cases
 
@@ -94,6 +94,10 @@ pip2 install --force-reinstall --no-deps git+https://github.com/gldnspud/virtual
 CPPFLAGS="-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H" \
    pip2 install --force-reinstall --no-deps Cartopy==0.17.0
 
+# SQLite backup requires a build from source
+
+pip2 install --force-reinstall --no-deps --no-binary :all: sqlitebck
+
 # Oracle drivers are only installed if needed and require a source build
 
 if [ "x$ORACLE_HOME" != "x" ]; then
@@ -102,9 +106,9 @@ fi
 
 # urlgrabber requires pycurl, which has special needs for installation
 
-#PYCURL_CURL_CONFIG=${HOMEBREW_PREFIX}/opt/curl/bin/curl-config \
-#   pip2 install --no-binary :all: pycurl==7.43.0.5
-#pip2 install urlgrabber==4.1.0
+PKG_CONFIG_PATH="/opt/brew/opt/curl/lib/pkgconfig" \
+   pip2 install --force-reinstall --no-binary :all: pycurl==7.43.0.5
+pip2 install --no-deps urlgrabber==4.1.0
 
 # Basemap requires geos and needs to know where it sits
 
