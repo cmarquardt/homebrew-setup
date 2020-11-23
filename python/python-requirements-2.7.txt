@@ -1,3 +1,7 @@
+# Global options
+
+--no-binary :all:
+
 # Basics
 
 virtualenv==16.7.10

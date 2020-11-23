@@ -1,3 +1,8 @@
+# Global options
+
+--no-binary :all:
+
+# Packages
 appdirs
 appnope
 attrs
