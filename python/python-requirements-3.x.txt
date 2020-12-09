@@ -35,6 +35,7 @@ h5py
 idna
 importlib-metadata
 ipykernel
+ipywidgets
 ipython
 ipython-genutils
 ipython-sql
