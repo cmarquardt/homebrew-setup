@@ -51,6 +51,10 @@ pip3 install -r python/python-requirements-3.x.txt
 GDAL_VERSION=`brew list --versions gdal | sed -e 's/gdal //g' -e 's/\_[123456789]//g'`
 pip3 install gdal==${GDAL_VERSION}
 
+# parmapper is only available from GitHub
+
+pip3 install git+https://github.com/Jwink3101/parmapper
+
 # 3. Python 2.7
 # -------------
 
@@ -77,6 +81,10 @@ CPPFLAGS="-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H" \
 if [ "x$ORACLE_HOME" != "x" ]; then
     FORCE_RPATH=yes pip2 install --no-binary :all: cx_Oracle==7.3.0
 fi
+
+# parmapper is only available from GitHub
+
+pip2 install git+https://github.com/Jwink3101/parmapper
 
 # urlgrabber requires pycurl, which has special needs for installation
 

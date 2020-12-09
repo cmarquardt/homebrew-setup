@@ -65,6 +65,10 @@ brew reinstall scipy
 GDAL_VERSION=`brew list --versions gdal | sed -e 's/gdal //g' -e 's/\_[123456789]//g'`
 pip3 install --force-reinstall --no-deps gdal==${GDAL_VERSION}
 
+# parmapper is only available from GitHub
+
+pip3 install --force-reinstall --no-deps git+https://github.com/Jwink3101/parmapper
+
 # 3. Python 2.7
 # -------------
 
@@ -103,6 +107,10 @@ pip2 install --force-reinstall --no-deps --no-binary :all: sqlitebck
 if [ "x$ORACLE_HOME" != "x" ]; then
     FORCE_RPATH=yes pip2 install --force-reinstall --no-deps --no-binary :all: cx_Oracle==7.3.0
 fi
+
+# parmapper is only available from GitHub
+
+pip2 install --force-reinstall --no-deps git+https://github.com/Jwink3101/parmapper
 
 # urlgrabber requires pycurl, which has special needs for installation
 
