@@ -40,6 +40,7 @@ ggplot2        # Plotting
 ggvis
 ggforce
 ggpubr
+ggridges
 ggthemes
 hrbrthemes
 cowplot
@@ -83,6 +84,7 @@ futile.options
 getopt
 RcppCNPy
 RUnit
+git2r
 bookdown       # Documentation
 formatR
 kableExtra
