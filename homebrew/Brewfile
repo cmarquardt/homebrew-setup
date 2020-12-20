@@ -164,6 +164,8 @@ brew "gdal"
 brew "gdk-pixbuf"
 # Perl compatible regular expressions library with a new API
 brew "pcre2"
+# Version control system designed to be a better CVS
+brew svn
 # Distributed revision control system
 brew "git"
 # Command-line option parsing utility
