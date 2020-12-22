@@ -142,7 +142,10 @@ remotes::install_git("https://gitlab.eumetsat.int/ro/R/robtools.git",
 remotes::install_git("https://gitlab.eumetsat.int/ro/R/mdbtools.git",
                      credentials = git2r::cred_token(token = "GITLAB_EUMETSAT_READONLY_TOKEN"))
 
- # FIXME: This should work, but it doesn't...
+remotes::install_git("https://gitlab.eumetsat.int/ro/R/ombtools.git",
+                     credentials = git2r::cred_token(token = "GITLAB_EUMETSAT_READONLY_TOKEN"))
+
+ # FIXME: This should work, but it doesn't... and the package is by now deprecated...
  #remotes::install_git("https://gitlab.com/marq/yaros-rtools.git",
  #                     credentials = git2r::cred_token(token = "GITLAB_COM_READONLY_TOKEN"))
 
