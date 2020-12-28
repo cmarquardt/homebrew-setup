@@ -78,6 +78,7 @@ urlgrabber==4.1.0
 SQLAlchemy==1.3.13
 sqlitebck==1.4
 alembic==1.4.0
+psycopg2==2.8.6
 
 # Data formats
 
