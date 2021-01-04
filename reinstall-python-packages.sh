@@ -123,3 +123,11 @@ pip2 install --no-deps urlgrabber==4.1.0
 #GEOS_DIR=`brew --prefix geos` \
 #   pip2 install --force-reinstall --no-deps https://github.com/matplotlib/basemap/archive/v1.1.0.tar.gz
 
+# 4. Jupyter Lab
+# --------------
+
+# Re-build jupyterlab
+jupyter lab build
+
+# Re-build jupyterlab templates
+jupyter labextension install jupyterlab_templates
