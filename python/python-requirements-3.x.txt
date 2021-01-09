@@ -76,6 +76,7 @@ pipdeptree
 pluggy
 prometheus-client
 prompt-toolkit
+psutil
 psycopg2
 ptyprocess
 py
