@@ -131,3 +131,6 @@ jupyter lab build
 
 # Re-build jupyterlab templates
 jupyter labextension install jupyterlab_templates
+
+# Re-build jupyterlab ipywidgets support
+jupyter labextension install @jupyter-widgets/jupyterlab-manager

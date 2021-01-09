@@ -153,7 +153,7 @@ Sys.unsetenv("CPPFLAGS")
 Sys.unsetenv("PKG_LIBS")
 Sys.unsetenv("PKG_CPPFLAGS")
 
-# 6. Set up Jupyter Lab
-# ---------------------
+# 6. Set up Jupyter Lab Kernel
+# ----------------------------
 
 IRkernel::installspec()
