@@ -100,6 +100,10 @@ pip2 install git+https://github.com/Jwink3101/parmapper
 # 4. Jupyter Lab
 # --------------
 
+# Configuration file
+mkdir -p ~/.jupyter
+cp python/dot.jupyter/*.py ~/.jupyter
+
 # Re-build jupyterlab
 jupyter lab build
 
