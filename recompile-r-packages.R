@@ -71,13 +71,7 @@ install.package.list <- function(plst, lib) {
 # 1. Environment variables supporting Homebrew
 # --------------------------------------------
 
-# 1.1 ROracle
-# -----------
-
-
-
-# 1.2 Homebrew include and library paths
-# --------------------------------------
+# 1.1 Header amd library paths
 
 prefix <- system("brew --prefix", intern = TRUE)
 
@@ -133,6 +127,37 @@ Sys.unsetenv("ORACLE_HOME")
 
 install.packages('R/ROracle_1.3-2.tar.gz', repos = NULL)
 
+# 4. Install my own packages
+# --------------------------
+
+if ("robtools" %in% res$failed$Package) {
+    remotes::install_git("https://gitlab.eumetsat.int/ro/R/robtools.git", dependencies = FALSE,
+                        credentials = git2r::cred_token(token = "GITLAB_EUMETSAT_READONLY_TOKEN"))
+    res$failed <- subset(res$failed, Package != "robtools")
+}
+
+if ("mdbtools" %in% res$failed$Package) {
+    remotes::install_git("https://gitlab.eumetsat.int/ro/R/mdbtools.git", dependencies = FALSE,
+                         credentials = git2r::cred_token(token = "GITLAB_EUMETSAT_READONLY_TOKEN"))
+    res$failed <- subset(res$failed, Package != "mdbtools")
+}
+
+if ("ombtools" %in% res$failed$Package) {
+    remotes::install_git("https://gitlab.eumetsat.int/ro/R/ombtools.git", dependencies = FALSE,
+                         credentials = git2r::cred_token(token = "GITLAB_EUMETSAT_READONLY_TOKEN"))
+    res$failed <- subset(res$failed, Package != "ombtools")
+}
+
+ # FIXME: This should work, but it doesn't... and the package is by now deprecated...
+ #remotes::install_git("https://gitlab.com/marq/yaros-rtools.git", dependencies = FALSE,
+ #                     credentials = git2r::cred_token(token = "GITLAB_COM_READONLY_TOKEN"))
+
+if ("cmarticles" %in% res$failed$Package) {
+    remotes::install_git("https://gitlab.eumetsat.int/marq/R-cmarticles.git", dependencies = FALSE,
+                         credentials = git2r::cred_token(token = "GITLAB_EUMETSAT_READONLY_TOKEN"))
+    res$failed <- subset(res$failed, Package != "cmarticles")
+}
+
 # 4. Provide infomation on packages that couldn't be recompiled
 # --------------------------------------------------------------
 
@@ -141,8 +166,6 @@ print(res$failed)
 
 # 5. Reset environment variables
 # ------------------------------
-
-# Note: As before, the following lines are for ROracle
 
 Sys.setenv(ORACLE_HOME = oracle_home)
 Sys.unsetenv("OCI_LIB")
