@@ -96,9 +96,13 @@ Sys.setenv(PKG_LIBS = paste("-L", prefix, "/lib", sep = ""))
 Sys.setenv(CPPFLAGS = paste("-I", prefix, "/include", sep = ""))
 Sys.setenv(LDFLAGS = paste("-L", prefix, "/lib", sep = ""))
 
-# 1.2 Rcpp
+# 1.2 Rcpp and RcppParallel
 
 install.packages("Rcpp", repos = "http://cran.rstudio.com")
+
+system("brew unlink tbb")
+install.packages("RcppParallel", repos = "http://cran.rstudio.com")
+system("brew link tbb")
 
 # 1.3 Special case: Bugs fixed on Github but not yet released)
 

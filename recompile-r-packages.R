@@ -103,12 +103,16 @@ n.last   <- length(packages$Package) + 1
 plst     <- packages
 n.failed <- length(plst$Package)
 
+system("brew unlink tbb")  # RcppParallel doesn't like this one...
+
 while (n.failed < n.last) {
     n.last   <- n.failed
     res      <- install.package.list(plst, lib)
     n.failed <- length(res$failed$Package)
     plst     <- res$failed
 }
+
+system("brew link tbb")    # Re-link again
 
 # 3. Install ROracle
 # ------------------
