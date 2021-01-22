@@ -334,8 +334,8 @@ brew "sphinx-doc"
 brew "sqliteodbc"
 # File system client based on SSH File Transfer Protocol
 brew "sshfs"
-# Suite of Sparse Matrix Software
-brew "suite-sparse"
+# Suite of Sparse Matrix Software   # !!! No need at present !!!
+# brew "suite-sparse"
 # Solve large, sparse nonsymmetric systems of equations
 brew "superlu"
 # Generate scripting interfaces to C/C++ code
@@ -354,6 +354,8 @@ brew "wxmac"
 brew "zlib"
 # Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
+# Google's JavaScript engine
+brew "v8"
 # Interpreted, interactive, object-oriented programming language
 brew "cmarquardt/formulae/python@2"
 # Package for scientific computing with Python@2
