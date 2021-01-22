@@ -68,13 +68,13 @@ hdf5r
 ncdf4
 RNetCDF
 tidync
-#rstan          # Baysian statistics
-#rstanarm
-#rstantools
-#brms
-#bayesplot
-#loo
-#shinystan
+rstan          # Baysian statistics
+rstantools
+bayesplot
+loo
+shinystan
+rstanarm
+brms
 udunits2       # Units
 units
 #"DBI          # Data bases
