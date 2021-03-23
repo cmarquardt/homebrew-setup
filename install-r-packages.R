@@ -5,7 +5,7 @@
 #
 # C. Marquardt, Darmstadt
 #
-# 25 October 2020
+# 21 March 2021
 #
 # This script (re-)installs a default set of R packages in a brewed
 # environment. I run it to
@@ -32,29 +32,21 @@
 #    rearranged the dependency file to list these first and explicitly,
 #    although the list probably isn't complete.
 #
-# At present (March 2020), there are several unrelated issues which
-# complicate (re-) building R and its packages. These are:
+# In recent years, the R community started to provide binary versions
+# of R packages also for macOS. The problem with those binary versions
+# is that they are compiled for and linked with the CRAN MacOS version
+# of R, which includes a framework install as well as a dedicated
+# Fortran compiler and runtime library. In a Homebrew build of R, the
+# corresponding shared libraries don't exists, or at at least installed
+# in other places so that the dynamic loader fails to load them. As a
+# workaround, put the follolwing line in either the system wide profile
+# ${R_HOME}/lib/etc/Rprofile.site, or your own local one ~/.Rprofile:
 #
-#  - Rcpp v1.04 has a bug that prohibits building packages using it
-#    on MacOS; therefore, the development version is installed for
-#    the time being;
-#  - HDF5 v1.12 seems to have broken several software packages. This
-#    affects not only the hdf5r package, but also the HDF interface
-#    as available in the brewed version of the Armadillo C++ library.
-#    As many R packages use RcppArmadillo, those will then not build
-#    against the brewed Armadillo.
+#    # Always build packages from source
+#    options(pkgType = "source")
 #
-#    The workarounds are:
-#
-#     - brew unlink armadillo before running this script (relinking
-#       afterwards is fine);
-#     - Not building hdf5r for the time being; I don't use. The
-#       maintainer knows about the problem (there's a ticket at GitHub:
-#       https://github.com/hhoeflin/hdf5r/issues/142)
-#
-#  - SimpleFeatures (sf) doesn't discover the header files of the Proj
-#    library; the problem is fixed in the development version available
-#    on GitHub which is build for the time being.
+# Note that per-project profile files (in <project-rppt>/.Rprofile), if
+# they exist, are sourced *instead* of the user profile.
 #
 # Other notes:
 #
