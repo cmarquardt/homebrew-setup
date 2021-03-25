@@ -21,7 +21,7 @@ Cython==0.29.15
 configparser==4.0.2
 ZConfig==3.5.0
 
-PyYAML==5.3
+PyYAML==5.4
 
 f90wrap==0.2.2
 line-profiler==3.0.2
