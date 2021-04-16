@@ -5,6 +5,7 @@
 # Packages
 appdirs
 appnope
+apscheduler
 attrs
 backcall
 bleach
