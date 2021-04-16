@@ -14,7 +14,7 @@ colorlog==4.1.0
 six==1.14.0
 stevedore==1.32.0
 pbr==5.4.4
-lxml==4.6.2
+lxml==4.6.3
 
 Cython==0.29.15
 
