@@ -89,6 +89,7 @@ pyrsistent
 python-dateutil
 python-jsonrpc-server
 python-language-server
+python_logging_rabbitmq
 pytz
 PyYAML
 pyzmq

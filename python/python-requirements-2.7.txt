@@ -136,6 +136,7 @@ ipython-sql==0.3.9
 
 psutil==5.8.0
 apscheduler=3.7.0
+python_logging_rabbitmq==2.0.0
 
 # Dependencies
 
