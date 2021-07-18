@@ -132,21 +132,30 @@ install.packages('R/ROracle_1.3-2.tar.gz', repos = NULL)
 # 4. Install my own packages
 # --------------------------
 
-remotes::install_git("https://gitlab.eumetsat.int/ro/R/robtools.git",
-                     credentials = git2r::cred_token(token = "GITLAB_EUMETSAT_READONLY_TOKEN"))
+# The following remote access installs via EUMETSAT's gitlab don't work for the time being.
 
-remotes::install_git("https://gitlab.eumetsat.int/ro/R/mdbtools.git",
-                     credentials = git2r::cred_token(token = "GITLAB_EUMETSAT_READONLY_TOKEN"))
+#remotes::install_git("https://gitlab.eumetsat.int/ro/R/robtools.git",
+#                     credentials = git2r::cred_token(token = "GITLAB_EUMETSAT_READONLY_TOKEN"))
 
-remotes::install_git("https://gitlab.eumetsat.int/ro/R/ombtools.git",
-                     credentials = git2r::cred_token(token = "GITLAB_EUMETSAT_READONLY_TOKEN"))
+#remotes::install_git("https://gitlab.eumetsat.int/ro/R/mdbtools.git",
+#                     credentials = git2r::cred_token(token = "GITLAB_EUMETSAT_READONLY_TOKEN"))
 
- # FIXME: This should work, but it doesn't... and the package is by now deprecated...
- #remotes::install_git("https://gitlab.com/marq/yaros-rtools.git",
- #                     credentials = git2r::cred_token(token = "GITLAB_COM_READONLY_TOKEN"))
+#remotes::install_git("https://gitlab.eumetsat.int/ro/R/ombtools.git",
+#                     credentials = git2r::cred_token(token = "GITLAB_EUMETSAT_READONLY_TOKEN"))
 
-remotes::install_git("https://gitlab.eumetsat.int/marq/R-cmarticles.git",
-                     credentials = git2r::cred_token(token = "GITLAB_EUMETSAT_READONLY_TOKEN"))
+ ## FIXME: This should work, but it doesn't... and the package is by now deprecated...
+ ##remotes::install_git("https://gitlab.com/marq/yaros-rtools.git",
+ ##                     credentials = git2r::cred_token(token = "GITLAB_COM_READONLY_TOKEN"))
+
+#remotes::install_git("https://gitlab.eumetsat.int/marq/R-cmarticles.git",
+#                     credentials = git2r::cred_token(token = "GITLAB_EUMETSAT_READONLY_TOKEN"))
+
+# Instead, we live off local directories - make sure they are up-to-date...
+
+remotes::install_local("/Users/marq/src/R/robtools", upgrade = "never", force = TRUE)
+remotes::install_local("/Users/marq/src/R/mdbtools", upgrade = "never", force = TRUE)
+remotes::install_local("/Users/marq/src/R/ombtools", upgrade = "never", force = TRUE)
+remotes::install_local("/Users/marq/src/R/cmarticles", upgrade = "never", force = TRUE)
 
 # 5. Reset environment variables
 # ------------------------------
