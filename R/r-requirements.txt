@@ -5,13 +5,14 @@ ctv
 mvtnorm
 spam
 mclust
-zeallot
 tidyverse      # Tidyverse
-shiny          # Web
-shinydashboard
-shinyWidgets
+zeallot
+glue
+skimr
 DT
-leaflet
+dtplyr
+tidymodels
+reticulate     # Python interfacing
 akima          # Polynomial fitting & smoothing
 locfit
 locpol
@@ -47,6 +48,7 @@ cowplot
 patchwork
 isoband
 magick
+plotly
 sp             # Spatial
 sf
 raster
@@ -62,24 +64,23 @@ mapproj
 ggmap
 ggspatial
 rasterVis
-reticulate     # Python interfacing
+shiny          # Web
+shinydashboard
+shinyWidgets
+flexdashboard
+bslib
+leaflet
 feather        # Data formats
 hdf5r
 ncdf4
 RNetCDF
 tidync
-rstan          # Baysian statistics
-rstantools
-bayesplot
-loo
-shinystan
-rstanarm
-brms
 udunits2       # Units
 units
-#"DBI          # Data bases
+DBI            # Data bases
 RSQLite
 RPostgres
+dbplyr
 pool
 fuzzyjoin
 devtools       # Development tools
@@ -89,12 +90,16 @@ optparse
 futile.logger
 futile.options
 getopt
+whisker
 RcppCNPy
 RUnit
 git2r
 bookdown       # Documentation
 formatR
 kableExtra
+gt
+gtsummary
+modelsummary
 rticles
 roxygen2
 repr           # IRKernel for Jupyter Notebooks
@@ -107,3 +112,15 @@ digest
 foreach        # Parallel processing
 doParallel
 doRNG
+multidplyr
+future
+rstan          # Baysian statistics
+rstantools
+bayesplot
+loo
+shinystan
+rstanarm
+brms
+tensorflow     # Machine and deep learning
+keras
+tfdatasets
