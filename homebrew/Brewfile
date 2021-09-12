@@ -374,7 +374,15 @@ brew "cmarquardt/formulae/python-utils"
 brew "cmarquardt/formulae/sofa"
 # Standards of Fundamental Astronomy (SOFA) library - Fortran version
 brew "cmarquardt/formulae/sofa-fortran"
-#
+# Casks for editors
 cask "atom"
 cask "sublime-text"
 cask "textmate"
+# Vagrant and friends - note sudo password is required for vagrant itself
+brew "packer"
+brew "vagrant-completion"
+cask "vagrant"
+cask "vagrant-vmware-utility"
+cask "vmware-fusion"
+# VMWare Horizon client
+cask "vmware-horizon-client"

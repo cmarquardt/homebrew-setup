@@ -128,6 +128,14 @@ Apart from `homebrew/core`, I'm also using the `bundle`, `casks`and `services` t
     brew tap homebrew/services
     brew tap cmarquardt/formulae
 
+## Setting up Vagrant and VMware Fusion
+
+To set up Vagrant to support VMware Fusion, run
+
+    vagrant plugin install vagrant-vmware-desktop
+
+It will also be necessary to enter a valid license code for VMware Fusion; if available already, one may register and request a license for free personal use at the VMWare website.
+
 ## Creating your own Brewfiles
 
 I created the brewfiles with
