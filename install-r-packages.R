@@ -5,32 +5,34 @@
 #
 # C. Marquardt, Darmstadt
 #
-# 21 March 2021
+# 13 October 2021
 #
 # This script (re-)installs a default set of R packages in a brewed
-# environment. I run it to
+# environment. It also rebuilds Jupyter's R kernel modules. I run 
+# this script to
 #
-#  - Install R packages on a clean machine, after all required software
-#    has been installed via brew;
-#  - Re-compile R packages after new versions of core dependencies
-#    became available in brew and require R and its packages to be
-#    recompiled. At present, recompiling is required after upgrades
-#    of
+#  - Recompile R packages after a new major version of R was released.
 #
-#     - the GNU C / Fortran compiler;
+#  - Recompile R packages after new versions of core dependencies
+#    became available in brew. At present, recompiling is required 
+#    after upgrades of
+#
+#     - the LLVM compiler suite if R is build with OpenMP (or of the
+#       GNU compiler suite if not)
+#     - the GNU Fortran compiler;
 #     - the OpenBlas library.
 #
 #    If the recompilation is not done, package imports will fail
 #    because loading of versioned shared libraries of either the
-#    Fortran runtime or the OpenBlas library will fail. In practise,
-#    this most often occurs when updating existing or installing
-#    new R packages from source. It is then advisable to recompile
-#    all packages.
+#    compiler runtimes or the OpenBlas library will fail.
 #
 #    Because of the dependency on Fortran and OpenBlas, all packages
 #    being linked against them must be rebuild first. I manually
 #    rearranged the dependency file to list these first and explicitly,
 #    although the list probably isn't complete.
+#
+#  - Install R packages on a clean machine, after all required software
+#    has been installed via brew.
 #
 # In recent years, the R community started to provide binary versions
 # of R packages also for macOS. The problem with those binary versions
@@ -50,6 +52,10 @@
 #
 # Other notes:
 #
+#  - Homebrew sometimes doesn't install or symlink gdal-config into its 
+#    standard bin directory; the utility then cannot be found. For this
+#    reason, the path to the tool must be added in some variant of 
+#    ~/.Rprofile.
 #  - ROracle requires special dealings with environment variables
 #    (assuming the Oracle instant client is installed, and ORACLE_HOME
 #    points to its root directory):
