@@ -48,7 +48,7 @@ export HDF5_DIR=${HOMEBREW_PREFIX}  # Apparently required for netCDF4
 
 # 2.1 Core packages - numpy and gdal require special treatment...
 
-pip3 install --force-reinstall --no-deps $(pip3 freeze | grep -ivE 'numpy|scipy|gdal')
+pip3 install --force-reinstall --no-deps $(pip3 freeze | grep -ivE 'numpy|scipy|gdal|parmapper')
 
 # 2.2 Special cases
 
@@ -63,6 +63,9 @@ brew reinstall scipy
 # Gdal version must match of the installed brewed version
 
 GDAL_VERSION=`brew list --versions gdal | sed -e 's/gdal //g' -e 's/\_[123456789]//g'`
+
+# Add path to gdal-config
+PATH="/opt/brew/opt/gdal/bin/:$PATH" \
 pip3 install --force-reinstall --no-deps gdal==${GDAL_VERSION}
 
 # parmapper is only available from GitHub
@@ -74,7 +77,7 @@ pip3 install --force-reinstall --no-deps git+https://github.com/Jwink3101/parmap
 
 # 3.1 Core packages - various packages require special treatment
 
-pip2 install --force-reinstall --no-deps $(pip2 freeze | grep -ivE 'numpy|scipy|basemap|cartopy|gdal|sqlitebck|cx_oracle|pycurl|urlgrabber|eccodes|eugene|fix-osx-virtualenv')
+pip2 install --force-reinstall --no-deps $(pip2 freeze | grep -ivE 'numpy|scipy|basemap|cartopy|gdal|sqlitebck|cx_oracle|pycurl|urlgrabber|eccodes|eugene|parmapper|fix-osx-virtualenv')
 
 # 3.2 Special cases
 
