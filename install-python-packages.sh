@@ -71,9 +71,11 @@ pip2 install -r python/python-requirements-2.7.txt
 
 # 3.3 Special cases
 
-# Cartopy requires a veriable setting because pkg-config fails with an error
+# Cartopy requires a veriable setting because pkg-config fails with an error. It
+# also needs an older version proj (proj@7)
 
-CPPFLAGS="-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H" \
+CPPFLAGS="-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H -I/opt/brew/opt/proj@7/include" \
+LDFLAGS="-L/opt/brew/opt/proj@7/lib" \
    pip2 install Cartopy==0.17.0
 
 # Oracle drivers are only installed if needed and require a source build
