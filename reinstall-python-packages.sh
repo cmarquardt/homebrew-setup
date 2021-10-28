@@ -98,8 +98,9 @@ pip2 install --force-reinstall --no-deps git+https://github.com/gldnspud/virtual
 
 # Cartopy requires a veriable setting because pkg-config fails with an error
 
-CPPFLAGS="-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H" \
-   pip2 install --force-reinstall --no-deps Cartopy==0.17.0
+CPPFLAGS="-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H -I/opt/brew/opt/proj@7/include" \
+LDFLAGS="-L/opt/brew/opt/proj@7/lib" \
+   pip2 install Cartopy==0.17.0
 
 # SQLite backup requires a build from source
 
