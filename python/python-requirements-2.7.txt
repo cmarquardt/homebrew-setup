@@ -70,7 +70,7 @@ pandocfilters==1.4.2
 # Internet
 
 ftputil==3.4
-pycurl==7.43.0.5
+pycurl==7.43.0.3
 urlgrabber==4.1.0
 
 # Databases
