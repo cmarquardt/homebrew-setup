@@ -119,7 +119,7 @@ pip2 install --force-reinstall --no-deps git+https://github.com/Jwink3101/parmap
 # urlgrabber requires pycurl, which has special needs for installation
 
 PKG_CONFIG_PATH="/opt/brew/opt/curl/lib/pkgconfig" \
-   pip2 install --force-reinstall --no-binary :all: pycurl==7.43.0.5
+   pip2 install --force-reinstall --no-binary :all: pycurl==7.43.0.3
 pip2 install --no-deps urlgrabber==4.1.0
 
 # Basemap requires geos and needs to know where it sits
