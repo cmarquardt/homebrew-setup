@@ -94,6 +94,14 @@ PKG_CONFIG_PATH="/opt/brew/opt/curl/lib/pkgconfig" \
    pip2 install --force-reinstall --no-binary :all: pycurl==7.43.0.3
 pip2 install --no-deps urlgrabber==4.1.0
 
+# netCDF4 needs to build against our own netCDF, HDF and curl libraries rather
+# than using a wheel
+
+USE_NCCONFIG=0 USE_SETUPCFG=0 \
+   NETCDF4_INCDIR=/opt/brew/include NETCDF4_LIBDIR=/opt/brew/lib \
+   HDF5_INCDIR=/opt/brew/include HDF5_LIBDIR=/opt/brew/lib \
+   pip2 install --force-reinstall --no-deps --no-binary :all: netCDF4==1.5.3
+
 # Basemap requires geos and needs to know where it sits
 
 #GEOS_DIR=`brew --prefix geos` \
