@@ -50,6 +50,7 @@ patchwork
 isoband
 magick
 plotly
+latex2exp
 sp             # Spatial
 sf
 raster
