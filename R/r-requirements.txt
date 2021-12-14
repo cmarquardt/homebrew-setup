@@ -48,6 +48,7 @@ hrbrthemes
 cowplot
 patchwork
 isoband
+metR
 magick
 plotly
 latex2exp
@@ -83,6 +84,7 @@ devtools       # Development tools
 packrat
 argparse
 optparse
+config
 futile.logger
 futile.options
 getopt
