@@ -52,21 +52,24 @@ metR
 magick
 plotly
 latex2exp
-sp             # Spatial
+rgeos          # Spatial and spacial-temporal
+rgdal
+sp
 sf
 raster
-maptools
 spacetime
 lwgeom
-rgeos
-rgdal
-rosm
-maps           # Maps
+rnaturalearth
+rnaturalearthdata
+kriging
+maps           # Maps and
 mapdata
 mapproj
+maptools
 ggmap
 ggspatial
 rasterVis
+rosm
 feather        # Data formats
 hdf5r
 ncdf4
