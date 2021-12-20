@@ -94,6 +94,10 @@ Sys.setenv(PKG_LIBS = paste("-L", prefix, "/lib", sep = ""))
 Sys.setenv(CPPFLAGS = paste("-I", prefix, "/include", sep = ""))
 Sys.setenv(LDFLAGS = paste("-L", prefix, "/lib", sep = ""))
 
+# Support for the gdal_config script of gdal
+
+Sys.setenv("PATH" = paste(Sys.getenv("PATH"), paste(prefix, "/gdal/bin/", sep = ":")))
+
 # 1.2 Rcpp and RcppParallel
 
 install.packages("Rcpp", repos = "http://cran.rstudio.com")

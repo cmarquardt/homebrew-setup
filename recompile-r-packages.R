@@ -71,7 +71,7 @@ install.package.list <- function(plst, lib) {
 # 1. Environment variables supporting Homebrew
 # --------------------------------------------
 
-# 1.1 Header amd library paths
+# Header amd library paths
 
 prefix <- system("brew --prefix", intern = TRUE)
 
@@ -80,6 +80,10 @@ Sys.setenv(PKG_LIBS = paste("-L", prefix, "/lib", sep = ""))
 
 Sys.setenv(CPPFLAGS = paste("-I", prefix, "/include", sep = ""))
 Sys.setenv(LDFLAGS = paste("-L", prefix, "/lib", sep = ""))
+
+# Support for the gdal_config script of gdal
+
+Sys.setenv("PATH" = paste(Sys.getenv("PATH"), paste(prefix, "/gdal/bin/", sep = ":")))
 
 # 2. Install packages from CRAN
 # -----------------------------
