@@ -49,6 +49,7 @@ cowplot
 patchwork
 isoband
 metR
+corrplot
 magick
 plotly
 latex2exp
@@ -61,8 +62,9 @@ spacetime
 lwgeom
 rnaturalearth
 rnaturalearthdata
+sm
 kriging
-maps           # Maps and
+maps           # Maps
 mapdata
 mapproj
 maptools
@@ -70,6 +72,7 @@ ggmap
 ggspatial
 rasterVis
 rosm
+Directional    # Directional statistics
 feather        # Data formats
 hdf5r
 ncdf4
