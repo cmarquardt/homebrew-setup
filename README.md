@@ -71,11 +71,15 @@ The next step is to install Python packages (for both Python 3 and Python 2). Th
 
 ## Installing R packages
 
-Of course, we also have R packages; they can be installed with
+Before installing R packages, it is advisable to create a user's `~/.Rprofile` file setting up the required paths into the Homebrew installation. A sample `.Rprofile` is available and copied into the correct location with
+
+    cp ./R/dot.Rprofile ~/.Rprofile
+
+R packages can be installed with
 
     ./install-r-packages.R
 
-Note that the packages to be installed are listed in the file `r-requirements.txt`.
+The packages to be installed are listed in the file `r-requirements.txt`.
 
 ## Setting up virtual environments
 
@@ -106,7 +110,7 @@ As some parts of the installation of Jupyter and its extensions are located in t
 
     # Re-build jupyterlab
     jupyter lab build
-
+    
     # Re-build jupyterlab templates
     jupyter labextension install jupyterlab_templates
 
