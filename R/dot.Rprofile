@@ -8,7 +8,7 @@
 options(pkgType = "source")
 
 # Paths to Hombrew libraries and eaders
-prefix <- system("brew --prefix", intern = TRUE)
+prefix <- system("/opt/brew/bin/brew --prefix", intern = TRUE)
 
 Sys.setenv(PKG_CPPFLAGS = paste("-I", prefix, "/include", sep = ""))
 Sys.setenv(PKG_LIBS = paste("-L", prefix, "/lib", sep = ""))
@@ -17,7 +17,7 @@ Sys.setenv(CPPFLAGS = paste("-I", prefix, "/include", sep = ""))
 Sys.setenv(LDFLAGS = paste("-L", prefix, "/lib", sep = ""))
 
 # Path to the gdal_config script
-Sys.setenv("PATH" = paste(Sys.getenv("PATH"), paste(prefix, "/gdal/bin/", sep = ":")))
+Sys.setenv("PATH" = paste(Sys.getenv("PATH"), paste(prefix, "opt", "gdal", "bin", sep = "/"), sep = ":"))
 
 
 # 2. Python/reticulate support
