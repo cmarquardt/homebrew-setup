@@ -73,7 +73,7 @@ ggspatial
 rasterVis
 rosm
 Directional    # Directional statistics
-feather        # Data formats
+arrow          # Data formats
 hdf5r
 ncdf4
 RNetCDF
