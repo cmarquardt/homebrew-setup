@@ -28,3 +28,9 @@ Sys.setenv(WORKON_HOME = "/Users/marq/Library/Virtualenvs")
 
 # Reticulate's default python - only for individual projects, never globally (it can't be overwritten from within R)
 #Sys.setenv(RETICULATE_PYTHON = "/opt/brew/bin/python3",
+
+# 3. Clean up
+# -----------
+
+rm(prefix)
+
