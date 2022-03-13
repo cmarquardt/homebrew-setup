@@ -133,6 +133,8 @@ loo
 shinystan
 rstanarm
 brms
-tensorflow     # Machine and deep learning
+#xgboost       # Machine and deep learning # xgboost needs a manual patch right now...
+h2o
+tensorflow
 keras
 tfdatasets
