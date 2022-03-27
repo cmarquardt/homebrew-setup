@@ -133,7 +133,16 @@ loo
 shinystan
 rstanarm
 brms
-#xgboost       # Machine and deep learning # xgboost needs a manual patch right now...
+caret          # Machine and deep learning
+tidymodels
+mlr3
+pdp
+vip
+tree
+rpart
+ranger
+lightgbm
+#xgboost       # xgboost needs a manual patch right now...
 h2o
 tensorflow
 keras

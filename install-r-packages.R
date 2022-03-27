@@ -167,7 +167,14 @@ remotes::install_local("/Users/marq/src/R/mdbtools", upgrade = "never", force = 
 remotes::install_local("/Users/marq/src/R/ombtools", upgrade = "never", force = TRUE)
 remotes::install_local("/Users/marq/src/R/cmarticles", upgrade = "never", force = TRUE)
 
-# 5. Reset environment variables
+# 5. Special case: Not yet released on CRAN, only available on GitHub
+# --------------------------------------------------------------------
+
+# treesnip provides a tinymodels integration for tree and lightGBM
+
+remotes::install_github("curso-r/treesnip")
+
+# 6. Reset environment variables
 # ------------------------------
 
 # Note: As before, the following lines are for ROracle
