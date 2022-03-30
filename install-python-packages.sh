@@ -48,8 +48,8 @@ pip3 install -r python/python-requirements-3.x.txt
 
 # Gdal version must match of the installed brewed version
 
-GDAL_VERSION=`brew list --versions gdal | sed -e 's/gdal //g' -e 's/\_[123456789]//g'`
-pip3 install gdal==${GDAL_VERSION}
+#GDAL_VERSION=`brew list --versions gdal | sed -e 's/gdal //g' -e 's/\_[123456789]//g'`
+#pip3 install gdal==${GDAL_VERSION}
 
 # parmapper is only available from GitHub
 
