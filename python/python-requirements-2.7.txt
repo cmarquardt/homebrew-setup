@@ -99,8 +99,8 @@ statsmodels==0.10.2
 
 # GIS things
 
-GDAL==2.4.4
-pyproj==2.2.2
+#GDAL==2.4.4
+#pyproj==2.2.2
 
 # Graphics
 
