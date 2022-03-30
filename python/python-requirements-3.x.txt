@@ -39,7 +39,7 @@ ipykernel
 ipywidgets
 ipython
 ipython-genutils
-ipython-sql
+#ipython-sql
 jedi
 Jinja2
 json5
