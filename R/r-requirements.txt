@@ -98,7 +98,9 @@ whisker
 RcppCNPy
 RUnit
 git2r
-bookdown       # Documentation
+drat
+quarto         # Documentation
+bookdown
 formatR
 kableExtra
 gt
