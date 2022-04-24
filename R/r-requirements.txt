@@ -137,6 +137,7 @@ rstanarm
 brms
 caret          # Machine and deep learning
 tidymodels
+mlr
 mlr3
 pdp
 vip
@@ -144,7 +145,7 @@ tree
 rpart
 ranger
 lightgbm
-#xgboost       # xgboost needs a manual patch right now...
+xgboost
 h2o
 tensorflow
 keras
