@@ -3,7 +3,6 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
-cask "osxfuse"
 # C/C++ resolver library and DNS resolver utilities
 brew "adns"
 # ANother Tool for Language Recognition
@@ -262,6 +261,8 @@ brew "jags"
 brew "oniguruma"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Process YAML documents from the CLI
+brew "yq"
 # Style and grammar checker
 brew "languagetool"
 # Sophisticated file transfer program
@@ -378,6 +379,9 @@ brew "cmarquardt/formulae/sofa-fortran"
 cask "atom"
 cask "sublime-text"
 cask "textmate"
+# Casks for databases
+cask "db-browser-for-sqlite"
+cask "pgadmin4"
 # Vagrant and friends - note sudo password is required for vagrant itself
 brew "packer"
 brew "vagrant-completion"
