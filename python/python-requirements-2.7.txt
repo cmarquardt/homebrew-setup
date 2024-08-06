@@ -104,7 +104,7 @@ statsmodels==0.10.2  # needs version
 
 # Graphics
 
-Pillow==6.2.2
+Pillow==8.1.1
 matplotlib==2.2.5
 pyshp==2.1.0
 Shapely==1.7.0
