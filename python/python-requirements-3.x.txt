@@ -2,7 +2,14 @@
 
 --no-binary :all:
 
-# Packages
+# Packages required by others
+flit_core
+flit
+pluggy
+poetry
+tqdm
+
+# Main pWangackages
 appdirs
 appnope
 apscheduler
@@ -22,7 +29,6 @@ defusedxml
 distlib
 ecmwf-api-client
 cdsapi
-cftime
 cfgrib
 entrypoints
 filelock
@@ -39,7 +45,6 @@ ipykernel
 ipywidgets
 ipython
 ipython-genutils
-#ipython-sql
 jedi
 Jinja2
 json5
@@ -74,7 +79,6 @@ pip-chill
 pip-upgrade-outdated
 pipdate
 pipdeptree
-pluggy
 prometheus-client
 prompt-toolkit
 psutil

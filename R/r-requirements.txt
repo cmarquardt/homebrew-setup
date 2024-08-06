@@ -47,13 +47,32 @@ ggthemes
 hrbrthemes
 cowplot
 patchwork
+lemon
 isoband
 metR
 corrplot
 magick
 plotly
 latex2exp
-rgeos          # Spatial and spacial-temporal
+mgcViz         # GAMs and GAMLSS
+gamm4
+qgam
+gamlss
+gamlss.add
+gamlss.cens
+gamlss.countKinf
+gamlss.data
+gamlss.demo
+gamlss.dist
+gamlss.foreach
+gamlss.ggplots
+gamlss.inf
+gamlss.lasso
+gamlss.mx
+gamlss.spatial
+gamlss.tr
+GJRM
+rgeos          # Spatial and spatial-temporal
 rgdal
 sp
 sf
@@ -137,6 +156,7 @@ rstanarm
 brms
 caret          # Machine and deep learning
 tidymodels
+bonsai
 mlr
 mlr3
 pdp

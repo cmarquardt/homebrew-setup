@@ -38,11 +38,11 @@ export HDF5_DIR=${HOMEBREW_PREFIX}  # Apparently required for netCDF4
 
 # 2.1 Update pip and setuptools
 
-python3 -m ensurepip --upgrade
+## python3 -m ensurepip --upgrade
 
 # 2.2 Core packages
 
-pip3 install -r python/python-requirements-3.x.txt
+## pip3 install -r python/python-requirements-3.x.txt
 
 # 2.3 Special cases
 
@@ -53,7 +53,7 @@ pip3 install -r python/python-requirements-3.x.txt
 
 # parmapper is only available from GitHub
 
-pip3 install git+https://github.com/Jwink3101/parmapper
+## pip3 install git+https://github.com/Jwink3101/parmapper
 
 # 3. Python 2.7
 # -------------
@@ -61,13 +61,14 @@ pip3 install git+https://github.com/Jwink3101/parmapper
 # 3.1 Update pip and setuptools
 
 python2 -m ensurepip --upgrade
+pip2 install --no-binary :all: setuptools-scm
 
 # 3.2 Core packages
 
 # Note: egenix-mx-base installs documentation and header files in /opt/homebrew/mx,
 #       so the Homebrew root directory must be writable. Then:
 
-pip2 install -r python/python-requirements-2.7.txt
+pip2 install --no-binary :all: -r python/python-requirements-2.7.txt
 
 # 3.3 Special cases
 
@@ -115,10 +116,10 @@ mkdir -p ~/.jupyter
 cp python/dot.jupyter/*.py ~/.jupyter
 
 # Re-build jupyterlab
-jupyter lab build
+## jupyter lab build
 
 # Re-build jupyterlab templates
-jupyter labextension install jupyterlab_templates
+## jupyter labextension install jupyterlab_templates
 
 # Re-build jupyterlab ipywidgets support
-jupyter labextension install @jupyter-widgets/jupyterlab-manager
+## jupyter labextension install @jupyter-widgets/jupyterlab-manager
