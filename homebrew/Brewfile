@@ -368,7 +368,7 @@ brew "cmarquardt/formulae/eccodes-cm"
 # EUMETSAT Polar System (EPS) data format library and python interface
 brew "cmarquardt/formulae/eugene"
 # Convert any Java jar to a Mac OS X App bundle
-brew "cmarquardt/formulae/jar2app"
+## brew "cmarquardt/formulae/jar2app"
 # Some Python utilities
 brew "cmarquardt/formulae/python-utils"
 # Standards of Fundamental Astronomy (SOFA) library - C version
@@ -376,17 +376,17 @@ brew "cmarquardt/formulae/sofa"
 # Standards of Fundamental Astronomy (SOFA) library - Fortran version
 brew "cmarquardt/formulae/sofa-fortran"
 # Casks for editors
-cask "atom"
-cask "sublime-text"
-cask "textmate"
+## cask "atom"
+## cask "sublime-text"
+## cask "textmate"
 # Casks for databases
 cask "db-browser-for-sqlite"
 cask "pgadmin4"
 # Vagrant and friends - note sudo password is required for vagrant itself
-brew "packer"
-brew "vagrant-completion"
-cask "vagrant"
-cask "vagrant-vmware-utility"
-cask "vmware-fusion"
+## brew "packer"
+## brew "vagrant-completion"
+## cask "vagrant"
+## cask "vagrant-vmware-utility"
+## cask "vmware-fusion"
 # VMWare Horizon client
-cask "vmware-horizon-client"
+## cask "vmware-horizon-client"
