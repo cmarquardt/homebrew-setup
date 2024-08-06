@@ -62,7 +62,7 @@ Sphinx==1.8.5
 sphinx-rtd-theme==0.4.3
 sphinxcontrib-websupport==1.1.2
 
-Pygments==2.5.2
+Pygments==2.7.4
 
 Markdown==3.1.1
 pandocfilters==1.4.2
