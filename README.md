@@ -58,7 +58,7 @@ The `Brewfile` installs the majority of the software I use and also adds all req
     brew update
     brew bundle --file Brewfile
 
-This will install a number of software packages including Python 2 and Python 3 together with numpy, along with several editors (Atom, Textmate and Sublime Text).
+This will install a number of software packages including Python 2 and Python 3 together with numpy, along with several editors (Textmate and Sublime Text).
 
 **Caveat:** If the editors are already installed, the `brew cask install` commands for them will fail. The way around this is to move the corresponding folders from `/Applications` into the bin and rerun the respective commands in order to install the command line tools as well.
 
