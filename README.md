@@ -1,37 +1,46 @@
 # Settung up Homebrew (in a non-default location)
 
-I like Homebrew, but I don't like its maintainer's of using `/usr/local` as an ordinary user, interfering with year-long best practices in the Unix world. I instead would like to have it installed in another place (which may belong to an ordinary user), say `/opt/brew`.
+I like Homebrew, but I don't like its maintainer's policy of using `/usr/local` on Intel Macs as an ordinary user, interfering with year-long best practices in the Unix world. I instead would like to have it installed in another place (which may belong to an ordinary user), say `/opt/brew`.
 
-This requires a slightly different installation process, but afterwards most things work as they should, despite the different `brew --prefix` directory.
+This requires a slightly different installation process, but afterwards, most things work as they should, despite the different `brew --prefix` directory. Note that this might affect how new packages are installed; `brew` will build software from source rather than using precompiled bottles in many cases. Now, that's fine with me in almost all cases...
 
 ## Setting up PATHs
 
-Obviously, `/opt/brew/bin` must be in the PATH. To accomplish this, edit the file `/etc/paths` with `sudo` and insert `/opt/brew/bin`. In my case, the resulting `/etc/paths` is:
+Obviously, `/opt/brew/bin` and `/opt/brew/sbin` must be in the PATH.  To accomplish this, edit the file `/etc/paths` with `sudo` and insert `/opt/brew/bin`. In my case, the resulting `/etc/paths` is:
 
     /opt/brew/bin
+    /opt/brew/sbin
     /usr/local/bin
     /usr/bin
     /bin
     /usr/sbin
     /sbin
 
-Note that the executables in omebrew now take precedence over all other ones, including those installed in `/usr/local/bin`. It might be better to insert the Homepref prefix only after `/usr/local/bin` so that software installed in `/usr/local/bin` takes precedence; that probably depends on how is using Homebrew and `/usr/local`. I tend to install software to `/usr/local` that is not available in Homebrew (e.g. (La)TeX); thus there is usually no conflict.
+The resulting setting of the PATH environment variable is the same that is also set up when running `eval "$(/opt/brew/bin/brew shellenv)"` which is supposed to be added to `~/.bash_profile` by the installation script. The latter sets further environment variables for the shell (see below).
 
-One conflict I did experience once is Docker; I use the installer from Docker Hub which places its command line tools into `/usr/local`. For a while, I had one Homebrew package that dependen on their Docker, so its installation would place a second set of Docker command line tools into Homebrew, shadowing the official ones. One workaround would be to install that Homebrew package without dependencies. On the other hand, I actually never experienced any real problems with Docker while I had bot sets of command line tools as the Homebrew version was reasonably aligned with offcial Docker releases.
+Note that with the above PATH settings, the executables in Homebrew now take precedence over all other ones, including those installed in `/usr/local/bin`. It might be better to insert the Homepref prefix only after `/usr/local/bin` so that software installed in `/usr/local/bin` takes precedence; that probably depends on how is using Homebrew and `/usr/local`. I tend to install software to `/usr/local` that is not available in Homebrew (e.g. (La)TeX); thus there is usually no conflict.
+
+One conflict I did experience once is Docker; I use the installer from Docker Hub which places its command line tools into `/usr/local`. For a while, I had one Homebrew package that depended on their Docker, so its installation would place a second set of Docker command line tools into Homebrew, shadowing the official ones. One workaround would be to install that Homebrew package without dependencies. On the other hand, I actually never experienced any real problems with Docker while I had both sets of command line tools as the Homebrew version was reasonably aligned with official Docker releases.
 
 Finally, a note: I'd prefer `/opt/homebrew` as my prefix and in fact I used that for several years. However, in late 2020, the Homebrew maintainers decided to use this as default path for ARM-based Macs. The `brew` command now prohibits installing packages on Intel Macs into this directory - so I changed my prefix to `/opt/brew`.
 
 ## Setting up the shell
 
-Initialisation scripts for`bash` are provided in the subdirectory tree with the same name; they can be installed into `$HOME` using
+Initialisation scripts for `bash` are provided in the subdirectory tree with the same name; they can be installed into `$HOME` using
 
     install-shell-init.sh
 
-and place files to be sourced into `~/.bashrc.d` and `~/.profile.d`. In addition, the create new initialisation files `~/.bashrc` and `~/.bash_profile`, and finally create a directory to hold command line completions for the bash shell.
+and place files to be sourced into `~/.bashrc.d` and `~/.profile.d`. In addition, the script creates new initialisation files `~/.bashrc` and `~/.bash_profile`, and finally a directory to hold command line completions for the bash shell.
+
+Homebrew requires some environment variables and suggests (during installation) to run ``eval "$(/opt/brew/bin/brew shellenv)"` at the end of `~/.bash_profile`. I'm handling this in the `.bashrc.d/00_paths` script, doing the equivalent of: 
+
+    export HOMEBREW_PREFIX="/opt/brew"
+    export HOMEBREW_CELLAR="/opt/brew/Cellar"
+    export HOMEBREW_REPOSITORY="/opt/brew/Homebrew"
 
 ## Setting up private tokens and `~/.ssh`
 
-Further installation steps (in particular for some homebrew packges from my tap) require access to protected git repositories; therefore, the configuration of `ssh` keys and GitHub/GitLab authentication tokens is required before the following steps can proceed.
+Further installation steps (in particular for some homebrew packages from my tap) require access to protected git repositories; therefore, the configuration of `ssh` keys and GitHub/GitLab authentication tokens is required before the following steps can proceed.
 
 ## Installing homebrew
 
