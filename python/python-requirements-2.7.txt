@@ -54,7 +54,7 @@ cookiecutter==1.7.0
 # Documentation
 
 Cheetah==2.4.4
-Jinja2==2.11.1
+Jinja2==2.11.3
 jinja2-time==0.2.0
 Mako==1.1.1
 
