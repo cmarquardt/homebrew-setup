@@ -11,6 +11,6 @@
 # 1. Installation directory of the Instant Client
 #-------------------------------------------------------------------------------
 
-if [ -d /opt/oracle/instantclient_19_8 ]; then
-   export ORACLE_HOME="/opt/oracle/instantclient_19_8"
+if [ -d /opt/oracle/instantclient_19_3 ]; then
+   export ORACLE_HOME="/opt/oracle/instantclient_19_3"
 fi

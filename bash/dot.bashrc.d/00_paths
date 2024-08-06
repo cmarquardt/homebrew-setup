@@ -14,7 +14,15 @@ PATH=".:$HOME/Library/bin:$PATH"
 
 # Note: This seems to work out of the box, even for non-standard installation roots.
 
+# Hombrew environment variables
+# -----------------------------
+
+export HOMEBREW_PREFIX="`brew --prefix`"
+export HOMEBREW_CELLAR="${HOMEBREW_PREFIX}/Cellar"
+export HOMEBREW_REPOSITORY="${HOMEBREW_PREFIX}/Homebrew"
+
 # PKG_CONFIG_PATH
 # ---------------
 
-export PKG_CONFIG_PATH="`brew --prefix`/lib/pkgconfig:`brew --prefix`/opt/zlib/lib/pkgconfig"
+#export PKG_CONFIG_PATH="${HOMEBREW_PREFIX}/lib/pkgconfig:${HOMEBREW_PREFIX}/opt/libffi/lib/pkgconfig:${HOMEBREW_PREFIX}/opt/zlib/lib/pkgconfig"
+export PKG_CONFIG_PATH="${HOMEBREW_PREFIX}/lib/pkgconfig:${HOMEBREW_PREFIX}/opt/zlib/lib/pkgconfig"
