@@ -35,11 +35,21 @@
 # See CLAUDE.md in this repository for full documentation, including the
 # known build workarounds this script applies and why.
 
-suppressPackageStartupMessages({
-  if (!requireNamespace("pak", quietly = TRUE)) {
-    stop("pak is not installed. Install it with: install.packages(\"pak\")")
+# Bootstrap pak itself if missing -- this is the normal state right after
+# an R version bump (brand new, empty site-library), which is exactly the
+# situation this script exists to recover from. Don't just fail and make
+# every fresh-library run require a manual `install.packages("pak")`
+# first.
+if (!requireNamespace("pak", quietly = TRUE)) {
+  cat("[bootstrap] pak not installed -- installing it first\n")
+  if (identical(getOption("repos")[["CRAN"]], "@CRAN@")) {
+    options(repos = c(CRAN = "https://cloud.r-project.org"))
   }
-})
+  install.packages("pak")
+  if (!requireNamespace("pak", quietly = TRUE)) {
+    stop("pak installation failed -- install it manually with install.packages(\"pak\") and retry")
+  }
+}
 
 SCRIPT_DIR <- dirname(sub("^--file=", "", grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)))
 if (length(SCRIPT_DIR) == 0 || SCRIPT_DIR == "") SCRIPT_DIR <- "."
