@@ -112,9 +112,10 @@ blindly reinstall forever.
 
 #### Local packages
 
-`robtools`/`mdbtools`/`ombtools` (and anything else installed via a local
-source checkout) aren't on CRAN, so they need special handling — both to
-avoid `pak` failing trying to resolve them by name, and because the roots
+`robtools`/`mdbtools`/`ombtools`/`cubgcv`/`vmflattop`/`sgtools`/
+`claudeskills` (and anything else installed via a local source checkout or
+a git repo) aren't on CRAN, so they need special handling — both to avoid
+`pak` failing trying to resolve them by name, and because the roots
 computation can hide one behind whatever else in the old library depends
 on it (in which case it won't be a root at all, even though it's
 genuinely wanted).
@@ -123,19 +124,27 @@ Detection is automatic and doesn't rely on a maintained list:
 `installed.packages(fields = "Repository")` reports `Repository = NA` for
 anything not installed from a normal repository (`"CRAN"` for everything
 else) — this is what flags a package as "local-looking". The actual
-*source path* still has to be known explicitly, though, so:
+*source* still has to be known explicitly, though, so:
 
-- `LOCAL_PACKAGES` (top of the script) maps the three known package names
-  to their source directories. These are **always** attempted (via pak's
-  `local::<path>` source spec — no separate `remotes` dependency needed),
-  regardless of whether they show up as roots, and installed **before**
-  the CRAN stages, so that any CRAN package which happens to depend on
-  one finds it already present.
+- **`R/r-local-packages.txt`** maps known local package names to a `pak`
+  package reference — most commonly `local::<path>`, but `pak` also
+  understands `git::<url>[@ref]`, `github::<user>/<repo>`, etc. directly
+  (see [pak's package sources
+  docs](https://pak.r-lib.org/reference/pak_package_sources.html)), so a
+  package can move from a local checkout to a hosted git repo later just
+  by editing its line — no code change. Same file format/location
+  convention as `R/r-requirements-*.txt` and as Chores' `sync_targets.conf`
+  (see that project's `CLAUDE.md`, "Personal config: keeping plugins
+  generic").
+- Entries in this file are **always** attempted, regardless of whether
+  they show up as roots, and installed **before** the CRAN stages, so
+  that any CRAN package which happens to depend on one finds it already
+  present.
 - Any other `Repository == NA` root — something installed once, ad hoc,
-  outside `LOCAL_PACKAGES` — is reported for manual review rather than
-  guessed at. (`ClaudeR` will show up here on a recover/reconcile run;
-  that's expected — it's installed via a separate path, Chores'
-  `update-r` skill's `update-claude-r.R`, not this script.)
+  with no entry in `r-local-packages.txt` — is reported for manual review
+  rather than guessed at. (`ClaudeR` will show up here on a
+  recover/reconcile run; that's expected — it's installed via a separate
+  path, Chores' `update-r` skill's `update-claude-r.R`, not this script.)
 
 #### Build-workaround hooks
 

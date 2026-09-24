@@ -1,0 +1,25 @@
+# Local (non-CRAN) R packages
+# =============================
+#
+# Format: name | pak package reference
+# One entry per line. Lines starting with # and blank lines are ignored.
+#
+# The reference column is whatever pak::pkg_install() accepts as a package
+# source spec -- most commonly a local checkout (local::<path>) but pak
+# also understands git::<url>[@ref], github::<user>/<repo>, etc. directly,
+# so a package can move from a local checkout to a hosted git repo later
+# just by editing this line. See:
+# https://pak.r-lib.org/reference/pak_package_sources.html
+#
+# These are always attempted (subject to --force), regardless of whether
+# they show up as "roots" in a --recover run -- see reinstall-r-packages.R
+# and CLAUDE.md for why (a local package can be hidden behind whatever
+# else depends on it).
+
+robtools     | local::/Users/marq/src/R/robtools
+mdbtools     | local::/Users/marq/src/R/mdbtools
+ombtools     | local::/Users/marq/src/R/ombtools
+cubgcv       | local::/Users/marq/Projects/cubgcv/r-pkg
+vmflattop    | local::/Users/marq/Projects/von-mises-flattop/vmflattop/r/vmflattop
+sgtools      | local::/Users/marq/src/R/sgtools
+claudeskills | local::/Users/marq/Src/ro-analysis/pkg

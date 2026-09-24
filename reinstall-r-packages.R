@@ -80,15 +80,24 @@ STAGE_FILES <- c(
 )
 STAGE_ORDER <- c("base", "devel", "html", "stats", "stats2", "spatial")
 
-# Locally-developed packages (not on CRAN) -- installed via pak's
-# local::<path> source spec from their source checkouts. Detected among
-# reinstall candidates via installed.packages()'s Repository field being NA
-# (see CLAUDE.md), but the actual source path has to be known explicitly.
-LOCAL_PACKAGES <- c(
-  robtools = "/Users/marq/src/R/robtools",
-  mdbtools = "/Users/marq/src/R/mdbtools",
-  ombtools = "/Users/marq/src/R/ombtools"
-)
+# Locally-developed packages (not on CRAN) -- read from R/r-local-packages.txt
+# as name -> pak package reference (local::<path>, git::<url>, etc.).
+# Detected among reinstall candidates via installed.packages()'s Repository
+# field being NA (see CLAUDE.md), but the actual source still has to be
+# known explicitly, which is what this file is for.
+LOCAL_PACKAGES_FILE <- file.path(SCRIPT_DIR, "R", "r-local-packages.txt")
+
+read.local.packages <- function(filename) {
+  if (!file.exists(filename)) return(character(0))
+  lines <- gsub("\\s*#.*", "", readLines(filename))
+  lines <- trimws(lines[lines != ""])
+  parts <- strsplit(lines, "\\s*\\|\\s*")
+  vals <- vapply(parts, `[`, character(1), 2)
+  names(vals) <- vapply(parts, `[`, character(1), 1)
+  vals
+}
+
+LOCAL_PACKAGES <- read.local.packages(LOCAL_PACKAGES_FILE)
 
 # ROracle: not a normal CRAN install (bundled tarball, needs the Oracle
 # Instant Client + an env var dance). Opt-in only via --include-oracle.
@@ -235,22 +244,26 @@ install_missing <- function(pkgs, dry_run) {
 }
 
 install_local_package <- function(pkg, dry_run) {
-  path <- LOCAL_PACKAGES[[pkg]]
-  if (is.null(path)) {
-    log_msg("[warn] %s looks like a local package (no CRAN Repository) but its source path is unknown -- skipping. Add it to LOCAL_PACKAGES if it should be installed automatically.", pkg)
+  ref <- LOCAL_PACKAGES[[pkg]]
+  if (is.null(ref)) {
+    log_msg("[warn] %s looks like a local package (no CRAN Repository) but has no entry in %s -- skipping.",
+            pkg, LOCAL_PACKAGES_FILE)
     return(invisible(NULL))
   }
   if (dry_run) {
-    log_msg("[dry-run] would install local package %s from %s", pkg, path)
+    log_msg("[dry-run] would install local package %s from %s", pkg, ref)
     return(invisible(NULL))
   }
-  if (!dir.exists(path)) {
-    log_msg("[warn] %s: source directory not found: %s -- skipping", pkg, path)
-    return(invisible(NULL))
+  # Only local::<path> refs have a directory to sanity-check up front; a
+  # git::/github:: ref's validity can only be found out by pak trying it.
+  if (startsWith(ref, "local::")) {
+    path <- sub("^local::", "", ref)
+    if (!dir.exists(path)) {
+      log_msg("[warn] %s: source directory not found: %s -- skipping", pkg, path)
+      return(invisible(NULL))
+    }
   }
-  # pak understands local sources directly (local::<path>), so this
-  # doesn't need remotes as a separate dependency.
-  pak::pkg_install(paste0("local::", path), ask = FALSE)
+  pak::pkg_install(ref, ask = FALSE)
 }
 
 install_oracle <- function(dry_run) {
