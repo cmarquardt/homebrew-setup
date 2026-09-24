@@ -380,18 +380,26 @@ mode_reconcile <- function(from) {
 
   ip <- load_source_table(from)
   roots <- compute_roots(ip)
-  roots <- roots[is.na(ip[roots, "Repository"]) == FALSE | roots %in% names(LOCAL_PACKAGES)]
+
+  repos_field <- ip[roots, "Repository"]
+  cran_roots  <- roots[!is.na(repos_field)]
+  local_roots <- roots[is.na(repos_field)]
 
   configured <- unique(unlist(lapply(STAGE_FILES, function(f) {
     path <- file.path(SCRIPT_DIR, f)
     if (file.exists(path)) read.requirements(path) else character(0)
   })))
 
-  not_in_config <- setdiff(roots, c(configured, names(LOCAL_PACKAGES)))
+  not_in_config <- setdiff(cran_roots, configured)
   not_installed <- setdiff(configured, rownames(ip))
+  unknown_local <- setdiff(local_roots, names(LOCAL_PACKAGES))
 
-  log_msg("\n%d root(s) not in any requirement file (candidates to add):", length(not_in_config))
+  log_msg("\n%d CRAN/Bioc root(s) not in any requirement file (candidates to add):", length(not_in_config))
   if (length(not_in_config) > 0) cat(paste(" -", sort(not_in_config)), sep = "\n")
+
+  log_msg("\n%d local-looking root(s) with no known source path (review manually -- not counted above):",
+          length(unknown_local))
+  if (length(unknown_local) > 0) cat(paste(" -", sort(unknown_local)), sep = "\n")
 
   log_msg("\n%d configured package(s) not present in the source library (candidates to prune, or just not yet installed there):",
           length(not_installed))
