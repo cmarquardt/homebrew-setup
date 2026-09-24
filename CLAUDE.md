@@ -58,15 +58,24 @@ Modes (default: --ensure):
                       (see "Integration with Chores" below).
   --recover          Recover an older library's package set into the
                       current one (see "Why roots" below).
-  --reconcile-only    Report the diff between an older library's roots and
-                      the requirement files; makes no changes.
+  --reconcile-only    Report the diff between a library's roots and the
+                      requirement files; makes no changes. Defaults to the
+                      CURRENT library — this is the ongoing "has config
+                      drifted" check (something installed manually outside
+                      the managed flow, or something in the requirement
+                      files that's no longer actually installed), safe to
+                      run any time. Pass --from <path> to compare an older
+                      library instead (the --recover use case).
 
 Options:
-  --from <path>        Site-library directory or .rds snapshot to recover/
-                        reconcile from. Default: auto-detect the most
-                        recent sibling <version>/site-library under the
-                        Homebrew R prefix, falling back to the newest
-                        snapshot in work/.
+  --from <path|current>  Site-library directory or .rds snapshot to
+                        recover/reconcile from. 'current' reads the live
+                        library directly (the default for
+                        --reconcile-only). --recover instead defaults to
+                        auto-detecting the most recent sibling
+                        <version>/site-library under the Homebrew R
+                        prefix, falling back to the newest snapshot in
+                        work/.
   --stages <list>       Comma-separated subset of: base,devel,html,stats,
                         stats2,spatial,local (default: all).
   --dry-run             Print the plan; make no changes (including: no
@@ -74,6 +83,8 @@ Options:
   --force               Reinstall even if already present.
   --include-oracle      Also attempt ROracle (off by default — see below).
 ```
+
+**Config sync**: run `Rscript reinstall-r-packages.R --reconcile-only` (no arguments) any time to check for drift between what's actually installed and the requirement files — e.g. after `install.packages()`-ing something ad hoc, or periodically as housekeeping. It's read-only.
 
 Always snapshot the *current* library first — as `.rds`, with full
 `Depends`/`Imports`/`LinkingTo`/`Repository`/`Priority` fields, to

@@ -194,13 +194,15 @@ compute_roots <- function(ip) {
 # Load a prior library's package table, either from a live sibling
 # site-library directory or a saved .rds snapshot.
 load_source_table <- function(from) {
-  if (dir.exists(from)) {
+  if (identical(from, "current")) {
+    installed.packages(fields = c("Repository", "Priority"))
+  } else if (dir.exists(from)) {
     installed.packages(lib.loc = from, fields = c("Repository", "Priority"))
   } else if (file.exists(from) && grepl("\\.rds$", from)) {
     df <- readRDS(from)
     as.matrix(df)
   } else {
-    stop(sprintf("--from path is neither a directory nor a .rds snapshot: %s", from))
+    stop(sprintf("--from path is neither \"current\", a directory, nor a .rds snapshot: %s", from))
   }
 }
 
@@ -426,8 +428,12 @@ mode_recover <- function(from, stages, dry_run, force) {
 # --reconcile-only: diff the roots of an older library against the
 # requirement files. Report only, no changes.
 mode_reconcile <- function(from) {
-  if (is.null(from)) from <- auto_detect_from()
-  if (is.null(from)) stop("--reconcile-only: no sibling site-library or saved snapshot found; pass --from explicitly")
+  # Unlike --recover (about migrating FROM an older library), the natural
+  # default for reconciling is the live, currently-evolving library --
+  # "has anything drifted from config" is an ongoing maintenance question,
+  # not a version-bump-specific one. Pass --from <path> explicitly to
+  # compare against an older library/snapshot instead.
+  if (is.null(from)) from <- "current"
   log_msg("[reconcile] source: %s", from)
 
   ip <- load_source_table(from)
@@ -497,11 +503,20 @@ Modes (default: --ensure):
   --ensure           Install requirement-file packages missing from the
                       current library.
   --recover          Recover an older library's roots into the current one.
-  --reconcile-only   Report roots-vs-requirement-file diff; no changes.
+  --reconcile-only   Report roots-vs-requirement-file diff for the CURRENT
+                      library by default -- run this any time to check for
+                      config drift (manually installed packages missing
+                      from the requirement files, or vice versa); no
+                      changes made. Pass --from to check an older library
+                      instead (e.g. right after a version bump, before
+                      running --recover).
 
 Options:
-  --from <path>       Site-library dir or .rds snapshot (--recover /
-                       --reconcile-only). Default: auto-detect.
+  --from <path|current>  Site-library dir or .rds snapshot to read from.
+                       'current' (the default for --reconcile-only) reads
+                       the live library directly. --recover instead
+                       defaults to auto-detecting a sibling <version>/
+                       site-library under the Homebrew R prefix.
   --stages <list>      Comma-separated subset of: base,devel,html,stats,
                        stats2,spatial,local (default: all).
   --dry-run            Print the plan; install nothing.
