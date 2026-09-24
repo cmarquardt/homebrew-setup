@@ -4,13 +4,13 @@ gamlss
 gamlss.add
 gamlss.cens
 gamlss.data
-#gamlss.demo    -- retired from CRAN as of 2026-09-24, confirmed via available.packages()
+#gamlss.demo    # retired from CRAN as of 2026-09-24, confirmed via available.packages()
 gamlss.dist
-#gamlss.foreach -- retired from CRAN as of 2026-09-24, confirmed via available.packages()
-#gamlss.ggplots -- retired from CRAN as of 2026-09-24, confirmed via available.packages()
+#gamlss.foreach # retired from CRAN as of 2026-09-24, confirmed via available.packages()
+#gamlss.ggplots # retired from CRAN as of 2026-09-24, confirmed via available.packages()
 gamlss.inf
 gamlss.lasso
-#gamlss.mx      -- retired from CRAN as of 2026-09-24, confirmed via available.packages()
+#gamlss.mx      # retired from CRAN as of 2026-09-24, confirmed via available.packages()
 #gamlss.spatial
 gamlss.tr
 gamm4
@@ -23,7 +23,7 @@ bonsai
 mlr
 mlr3
 pdp
-#vip -- retired from CRAN as of 2026-09-24, confirmed via available.packages()
+#vip # retired from CRAN as of 2026-09-24, confirmed via available.packages()
 tree
 rpart
 ranger
