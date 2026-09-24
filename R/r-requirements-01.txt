@@ -1,0 +1,123 @@
+Hmisc          # Basic Statistics
+svd
+ctv
+mvtnorm
+spam
+mclust
+xts            # Time series support
+zoo
+astsa
+multitaper     # Time series
+prophet
+Rwave          # Time-Frequency Analysis
+SynchWave
+EMD
+Directional    # Directional statistics
+mice           # Multiple imputation
+robustbase     # Robust statistics
+robustreg
+robustHD
+rrcov
+rrcovNA
+rrcovHD
+robcor
+robCompositions
+mvoutlier
+RobStatTM
+cellWise
+GSE
+akima          # Polynomial fitting & smoothing
+locfit
+locpol
+lpridge
+kernlab
+
+
+
+quarto         # Quarto and other documentation tools
+bookdown
+formatR
+kableExtra
+gt
+gtsummary
+modelsummary
+rticles
+roxygen2
+workflowr
+
+shiny          # Shiny / HTML
+shinydashboard
+shinyWidgets
+flexdashboard
+bslib
+htmlwidgets
+leaflet
+
+
+
+
+maps           # Maps
+mapdata
+mapproj
+maptools
+ggmap
+ggspatial
+rasterVis
+rosm
+rgeos          # Spatial and spatial-temporal
+rgdal
+sp
+sf
+raster
+spacetime
+lwgeom
+rnaturalearth
+rnaturalearthdata
+sm
+kriging
+
+
+gamm4          # GAMs and GAMLSS
+qgam
+gamlss
+gamlss.add
+gamlss.cens
+gamlss.countKinf
+gamlss.data
+gamlss.demo
+gamlss.dist
+gamlss.foreach
+gamlss.ggplots
+gamlss.inf
+gamlss.lasso
+gamlss.mx
+gamlss.spatial
+gamlss.tr
+GJRM
+mgcViz
+
+rcaret          # Machine learning
+tidymodels
+bonsai
+mlr
+mlr3
+pdp
+vip
+tree
+rpart
+ranger
+lightgbm
+xgboost
+h2o
+tensorflow
+keras
+tfdatasets
+
+stan          # Bayesian statistics
+rstantools
+bayesplot
+loo
+shinystan
+rstanarm
+brms
+

@@ -1,0 +1,31 @@
+Hmisc          # Basic Statistics
+svd
+ctv
+mvtnorm
+spam
+mclust
+multitaper     # Time series
+prophet
+Rwave          # Time-Frequency Analysis
+SynchWave
+EMD
+Directional    # Directional statistics
+mice           # Multiple imputation
+VIM
+robustbase     # Robust statistics
+robustreg
+robustHD
+rrcov
+rrcovNA
+rrcovHD
+robcor
+robCompositions
+mvoutlier
+RobStatTM
+cellWise
+GSE
+akima          # Polynomial fitting & smoothing
+locfit
+locpol
+lpridge
+kernlab

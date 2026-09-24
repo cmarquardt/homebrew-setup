@@ -1,0 +1,43 @@
+mgcv          # GAMs and GAMLSS
+qgam
+gamlss
+gamlss.add
+gamlss.cens
+gamlss.data
+gamlss.demo
+gamlss.dist
+gamlss.foreach
+gamlss.ggplots
+gamlss.inf
+gamlss.lasso
+gamlss.mx
+#gamlss.spatial
+gamlss.tr
+gamm4
+qgam
+GJRM
+mgcViz
+caret          # Machine learning
+tidymodels
+bonsai
+mlr
+mlr3
+pdp
+vip
+tree
+rpart
+ranger
+lightgbm
+xgboost
+h2o
+tensorflow
+keras
+tfdatasets
+rstan         # Bayesian statistics
+rstantools
+bayesplot
+loo
+shinystan
+rstanarm
+brms
+bridgesampling

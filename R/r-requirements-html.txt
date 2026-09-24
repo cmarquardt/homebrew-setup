@@ -1,0 +1,17 @@
+quarto         # Quarto and other documentation tools
+bookdown
+formatR
+kableExtra
+gt
+gtsummary
+modelsummary
+rticles
+roxygen2
+workflowr
+shiny          # Shiny / HTML
+shinydashboard
+shinyWidgets
+flexdashboard
+bslib
+htmlwidgets
+leaflet

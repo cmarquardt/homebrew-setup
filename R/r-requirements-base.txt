@@ -1,0 +1,50 @@
+tidyverse      # Tidyverse, data.table, times
+zeallot
+glue
+skimr
+DT
+dtplyr
+data.table
+data.table.threads
+xts            # Time series support
+zoo
+astsa
+hms
+ggplot2        # ggplot2 / plotting
+ggvis
+ggforce
+ggfortify
+ggpubr
+ggrepel
+ggridges
+ggsci
+ggsignif
+ggstats
+ggthemes
+ggvis
+hrbrthemes
+cowplot
+patchwork
+viridis
+viridisLite
+lemon
+isoband
+metR
+corrplot
+magick
+plotly
+latex2exp
+#arrow         # Data formats - FIXME: arrow doesn't work right now...
+hdf5r
+ncdf4
+RNetCDF
+tidync
+CFtime
+udunits2       # Units
+units
+DBI            # Data bases
+RSQLite
+RPostgres
+dbplyr
+pool
+fuzzyjoin

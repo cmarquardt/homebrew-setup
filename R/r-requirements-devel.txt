@@ -1,0 +1,32 @@
+devtools       # Development tools
+packrat
+argparse
+optparse
+config
+futile.logger
+futile.options
+getopt
+testthat
+whisker
+RcppArmadillo
+RcppCNPy
+RcppEigen
+RcppParallel
+RUnit
+git2r
+drat
+reticulate     # Python
+foreach        # Parallel processing
+doParallel
+doRNG
+multidplyr
+future
+Rfast
+Rfast2
+repr           # Jupyter Notebooks
+IRkernel
+IRdisplay
+evaluate
+pbdZMQ
+uuid
+digest

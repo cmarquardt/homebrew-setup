@@ -1,0 +1,19 @@
+maps           # Maps
+mapdata
+mapproj
+ggmap
+ggspatial
+rasterVis
+rosm
+geosphere      # Geodetic
+sp             # Spatial and spatial-temporal
+sf
+raster
+terra
+spacetime
+fields
+lwgeom
+rnaturalearth
+rnaturalearthdata
+sm
+kriging
