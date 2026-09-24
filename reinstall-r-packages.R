@@ -234,13 +234,46 @@ auto_detect_from <- function() {
 # 6. Install machinery
 # ----------------------
 
+# Packages that failed to install, across the whole run -- collected here
+# rather than tracked per-call, so the script can report a full summary
+# and exit non-zero at the end without any single failure aborting the
+# rest of the run (see install_missing()/install_local_package()).
+FAILED_PACKAGES <- character(0)
+note_failure <- function(pkg, err) {
+  FAILED_PACKAGES <<- c(FAILED_PACKAGES, pkg)
+  log_msg("[fail] %s: %s", pkg, conditionMessage(err))
+}
+
+# pak solves a whole pkg_install() call's dependency graph atomically: one
+# unresolvable or conflicting package (retired from CRAN, a real version
+# conflict with something else in the same call, ...) fails the ENTIRE
+# batch, not just that package -- so a single bad package could otherwise
+# silently block every other package in the same stage. Try the batch
+# first (fast path, the common case), and if that fails, fall back to
+# installing one at a time so the good ones still get installed and only
+# the actual offenders are reported.
 install_missing <- function(pkgs, dry_run) {
   if (length(pkgs) == 0) return(invisible(NULL))
   if (dry_run) {
     log_msg("[dry-run] would install: %s", paste(pkgs, collapse = ", "))
     return(invisible(NULL))
   }
-  with_build_hooks(pkgs, function(p) pak::pkg_install(p, ask = FALSE))
+  batch_ok <- tryCatch({
+    with_build_hooks(pkgs, function(p) pak::pkg_install(p, ask = FALSE))
+    TRUE
+  }, error = function(e) {
+    log_msg("[warn] batch install of %d package(s) failed (%s) -- retrying individually",
+            length(pkgs), conditionMessage(e))
+    FALSE
+  })
+  if (batch_ok) return(invisible(NULL))
+
+  for (p in pkgs) {
+    tryCatch(
+      with_build_hooks(p, function(pp) pak::pkg_install(pp, ask = FALSE)),
+      error = function(e) note_failure(p, e)
+    )
+  }
 }
 
 install_local_package <- function(pkg, dry_run) {
@@ -263,7 +296,10 @@ install_local_package <- function(pkg, dry_run) {
       return(invisible(NULL))
     }
   }
-  pak::pkg_install(ref, ask = FALSE)
+  tryCatch(
+    pak::pkg_install(ref, ask = FALSE),
+    error = function(e) note_failure(pkg, e)
+  )
 }
 
 install_oracle <- function(dry_run) {
@@ -282,7 +318,10 @@ install_oracle <- function(dry_run) {
     Sys.setenv(ORACLE_HOME = oracle_home)
     Sys.unsetenv("OCI_LIB")
   }, add = TRUE)
-  install.packages(ORACLE_TARBALL, repos = NULL)
+  tryCatch(
+    install.packages(ORACLE_TARBALL, repos = NULL),
+    error = function(e) note_failure("ROracle", e)
+  )
 }
 
 # 7. Modes
@@ -489,4 +528,10 @@ if (mode == "ensure") {
 
 if (include_oracle) install_oracle(dry_run)
 
-log_msg("[done] mode=%s", mode)
+if (length(FAILED_PACKAGES) > 0) {
+  log_msg("[done] mode=%s -- %d package(s) failed: %s",
+          mode, length(FAILED_PACKAGES), paste(FAILED_PACKAGES, collapse = ", "))
+  quit(status = 1)
+} else {
+  log_msg("[done] mode=%s", mode)
+}
