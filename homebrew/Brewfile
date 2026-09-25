@@ -1,12 +1,62 @@
-tap "cmarquardt/formulae"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
-tap "homebrew/services"
+tap "cmarquardt/formulae", trusted: true
 # C/C++ resolver library and DNS resolver utilities
 brew "adns"
+# Fast and opinionated formatter for R code
+brew "air"
+# Library for manipulating PNG images
+brew "libpng"
+# Software library to render fonts
+brew "freetype"
+# C string library for manipulating Unicode strings
+brew "libunistring"
+# GNU internationalization (i18n) and localization (l10n) library
+brew "gettext"
+# JSON parser for C
+brew "json-c"
+# XML-based font configuration API for X Windows
+brew "fontconfig"
+# Perl compatible regular expressions library with a new API
+brew "pcre2"
+# Core application library for C
+brew "glib"
+# Low-level library for pixel manipulation
+brew "pixman"
+# Vector graphics library with cross-device output support
+brew "cairo"
+# Library and utilities for processing GIFs
+brew "giflib"
+# Smart font renderer for non-Roman scripts
+brew "graphite2"
+# C/C++ and Java libraries for Unicode and globalization
+brew "icu4c@78"
+# OpenType text shaping engine
+brew "harfbuzz"
+# Extremely Fast Compression algorithm
+brew "lz4"
+# General-purpose data compression with high compression ratio
+brew "xz"
+# Zstandard is a real-time compression algorithm
+brew "zstd"
+# TIFF library and utilities
+brew "libtiff"
+# Image format providing lossless and lossy compression for web images
+brew "webp"
+# Color management engine supporting ICC profiles
+brew "little-cms2"
+# Java build tool
+brew "ant"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
 # ANother Tool for Language Recognition
-brew "antlr@2"
+brew "antlr"
+# Columnar in-memory analytics layer designed to accelerate big data
+brew "apache-arrow"
+# Generic library support script
+brew "libtool"
+# ODBC 3 connectivity for UNIX
+brew "unixodbc"
 # GNU multiple precision arithmetic library
 brew "gmp"
 # Integer Set Library for the polyhedral model
@@ -17,20 +67,22 @@ brew "mpfr"
 brew "libmpc"
 # GNU compiler collection
 brew "gcc"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@1.1"
 # Asynchronous event library
 brew "libevent"
 # High performance message passing library
 brew "open-mpi"
-# Optimized BLAS library
-brew "openblas"
 # Routines to solve large scale eigenvalue problems
 brew "arpack"
-# Implementation of extended-Rice lossless compression algorithm
-brew "szip"
-# File format designed to store large amounts of data
-brew "hdf5"
+# Collection of portable C++ source libraries
+brew "boost"
+# Standard XML representation system for technical documents
+brew "docbook"
+# Source-code syntax highlighter
+brew "source-highlight"
+# YAML Parser
+brew "libyaml"
+# Portable library for importing many well-known 3D model formats
+brew "assimp"
 # Automatic configure script builder
 brew "autoconf"
 # Tool for generating GNU Standards-compliant Makefiles
@@ -39,64 +91,48 @@ brew "automake"
 brew "bash-completion"
 # Parser generator
 brew "bison"
-# C/C++ and Java libraries for Unicode and globalization
-brew "icu4c"
-# Collection of portable C++ source libraries
-brew "boost"
-# Library for manipulating PNG images
-brew "libpng"
-# Software library to render fonts
-brew "freetype"
-# XML-based font configuration API for X Windows
-brew "fontconfig"
-# GNU database manager
-brew "gdbm"
-# GNU internationalization (i18n) and localization (l10n) library
-brew "gettext"
-# Portable Foreign Function Interface library
-brew "libffi"
-# Perl compatible regular expressions library
-brew "pcre"
-# Library for command-line editing
-brew "readline"
-# Command-line interface for SQLite
-brew "sqlite"
-# General-purpose data compression with high compression ratio
-brew "xz"
-# Interpreted, interactive, object-oriented programming language
-brew "python"
-# Core application library for C
-brew "glib"
-# Low-level library for pixel manipulation
-brew "pixman"
-# Vector graphics library with cross-device output support
-brew "cairo"
+# C library implementing the SSH2 protocol
+brew "libssh2"
+# C library of Git core methods that is re-entrant and linkable
+brew "libgit2"
 # C access to FITS data files with optional Fortran wrappers
 brew "cfitsio"
+# Computational Geometry Algorithms Library
+brew "cgal"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+# File format designed to store large amounts of data
+brew "hdf5"
 # Cross-platform make
 brew "cmake"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
-# Standard SGML representation system for technical documents
-brew "docbook"
 # XML vocabulary to create presentation-neutral documents
 brew "docbook-xsl"
 # Convert text between DOS, UNIX, and Mac formats
 brew "dos2unix"
+# Libraries and data formats for array-oriented scientific data
+brew "netcdf"
+# Library for JPEG-2000 image manipulation
+brew "openjpeg"
+# Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats
+brew "eccodes"
 # Library like getopt(3) with a number of enhancements
 brew "popt"
 # Powerful wavelet image compressor
 brew "epsilon"
-# Image manipulation library
-brew "jpeg"
-# TIFF library and utilities
-brew "libtiff"
+# Implementation of the Unicode BiDi algorithm
+brew "fribidi"
+# Framework for layout and rendering of i18n text
+brew "pango"
 # Interpreter for PostScript and PDF
 brew "ghostscript"
 # Edit preview images and fix bounding boxes in EPS files
 brew "epstool"
-# XML 1.0 parser
-brew "expat"
+# H.265/HEVC encoder
+brew "x265"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
 # C routines to compute the Discrete Fourier Transform
 brew "fftw"
 # Library for manipulating JPEG-2000 images
@@ -107,92 +143,16 @@ brew "netpbm"
 brew "fig2dev"
 # Library to extract data from Excel .xls files
 brew "freexl"
-# Implementation of the Unicode BiDi algorithm
-brew "fribidi"
 # GNU awk utility
 brew "gawk"
-# Image format providing lossless and lossy compression for web images
-brew "webp"
+# Open-source implementation of JPEG2000 Part-15 (or JPH or HTJ2K)
+brew "openjph"
+# High dynamic-range image file format
+brew "openexr"
 # Graphics library to dynamically manipulate images
 brew "gd"
 # Geometry Engine
 brew "geos"
-# Library and utilities for processing GIFs
-brew "giflib"
-# JSON parser for C
-brew "json-c"
-# GNOME XML library
-brew "libxml2"
-# Framework for scientific data networking
-brew "libdap"
-# Cartographic Projections Library
-brew "proj"
-# Library and tools for dealing with GeoTIFF
-brew "libgeotiff"
-# Postgres C API library
-brew "libpq"
-# Adds spatial SQL capabilities to SQLite
-brew "libspatialite"
-# Generic library support script
-brew "libtool"
-# Color management engine supporting ICC profiles
-brew "little-cms2"
-# Libraries and data formats for array-oriented scientific data
-brew "netcdf"
-# Platform-neutral API for system-level and libc-like functions
-brew "nspr"
-# Libraries for security-enabled client and server applications
-brew "nss"
-# Package for scientific computing with Python
-brew "numpy"
-# Library for JPEG-2000 image manipulation
-brew "openjpeg"
-# Cross-platform application and UI framework
-brew "qt"
-# PDF rendering library (based on the xpdf-3.0 code base)
-brew "poppler"
-# ODBC 3 connectivity for UNIX
-brew "unixodbc"
-# Validating XML parser
-brew "xerces-c"
-# Zstandard is a real-time compression algorithm
-brew "zstd"
-# Geospatial Data Abstraction Library
-brew "gdal"
-# Toolkit for image loading and pixel buffer manipulation
-brew "gdk-pixbuf"
-# Perl compatible regular expressions library with a new API
-brew "pcre2"
-# Version control system designed to be a better CVS
-brew "svn"
-# Distributed revision control system
-brew "git"
-# Command-line option parsing utility
-brew "gnu-getopt"
-# AVH edition of git-flow
-brew "git-flow-avh"
-# Tool Command Language
-brew "tcl-tk"
-# Tcl/Tk UI for the git revision control system
-brew "git-gui"
-# Incremental merge for git
-brew "git-imerge"
-# Git extension for versioning large files
-brew "git-lfs"
-# Interpreter for PostScript and PDF
-brew "ghostscript"
-# Play, record, convert, and stream audio and video
-brew "ffmpeg"
-# Image processing tools collection
-brew "graphicsmagick"
-# Tools for manipulating and plotting geographic and Cartesian data
-brew "gmt"
-# GNU implementation of the famous stream editor
-brew "gnu-sed"
-# GNU version of the tar archiving utility
-brew "gnu-tar"
-# C string library for manipulating Unicode strings
-brew "libunistring"
 # International domain name library (IDNA2008, Punycode and TR46)
 brew "libidn2"
 # ASN.1 structure parser library
@@ -201,8 +161,6 @@ brew "libtasn1"
 brew "nettle"
 # Library to load and enumerate PKCS#11 modules
 brew "p11-kit"
-# Validating, recursive, caching DNS resolver
-brew "unbound"
 # GNU Transport Layer Security (TLS) Library
 brew "gnutls"
 # Common error values for all GnuPG components
@@ -219,66 +177,112 @@ brew "libusb"
 brew "npth"
 # Passphrase entry dialog utilizing the Assuan protocol
 brew "pinentry"
-# GNU Pretty Good Privacy (PGP) package
+# GNU Privacy Guard (OpenPGP)
 brew "gnupg"
-# Smart font renderer for non-Roman scripts
-brew "graphite2"
-# OpenType text shaping engine
-brew "harfbuzz"
+# Library access to GnuPG
+brew "gpgme"
+# Cartographic Projections Library
+brew "proj"
+# Library and tools for dealing with GeoTIFF
+brew "libgeotiff"
+# ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
+brew "libheif"
+# Postgres C API library
+brew "libpq", link: true
+# GNOME XML library
+brew "libxml2"
+# Adds spatial SQL capabilities to SQLite
+brew "libspatialite"
+# Platform-neutral API for system-level and libc-like functions
+brew "nspr"
+# Libraries for security-enabled client and server applications
+brew "nss"
+# Package for scientific computing with Python
+brew "numpy"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
+# Computes convex hulls in n dimensions
+brew "qhull"
+# C++ wrapper library around CGAL
+brew "sfcgal"
+# Validating XML parser
+brew "xerces-c"
+# Geospatial Data Abstraction Library
+brew "gdal"
+# GNU database manager
+brew "gdbm"
+# Toolkit for image loading and pixel buffer manipulation
+brew "gdk-pixbuf"
+# Portable Foreign Function Interface library
+brew "libffi"
+# Multi-platform support library with a focus on asynchronous I/O
+brew "libuv"
+# Interact with Google Gemini AI models from the command-line
+brew "gemini-cli"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# Tool Command Language
+brew "tcl-tk"
+# Tcl/Tk UI for the git revision control system
+brew "git-gui"
+# Incremental merge for git
+brew "git-imerge"
+# Git extension for versioning large files
+brew "git-lfs"
+# Open-source GitLab command-line tool
+brew "glab"
+# Tools for manipulating and plotting geographic and Cartesian data
+brew "gmt"
+# Command-line option parsing utility
+brew "gnu-getopt"
+# GNU implementation of the famous stream editor
+brew "gnu-sed"
+# GNU version of the tar archiving utility
+brew "gnu-tar"
 # Numeric library for complex error functions
 brew "libcerf"
 # Powerful, lightweight programming language
 brew "lua"
-# Framework for layout and rendering of i18n text
-brew "pango"
+# Classes for displaying the contents of SVG files
+brew "qtsvg"
 # Command-driven, interactive function plotting
 brew "gnuplot"
-# Manage compile and link flags for libraries
-brew "pkg-config"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
 # Generate introspection data for GObject libraries
 brew "gobject-introspection"
+# Image processing tools collection
+brew "graphicsmagick"
 # Numerical library for C and C++
 brew "gsl"
-# Source-code syntax highlighter
-brew "source-highlight"
 # GTK+ documentation tool
 brew "gtk-doc"
-# Database of common MIME types
-brew "shared-mime-info"
-# H.265/HEVC encoder
-brew "x265"
-# ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
-brew "libheif"
-# High dynamic-range image file format
-brew "openexr"
-# Tools and libraries to manipulate images in many formats
+# Tools and libraries to manipulate images in select formats
 brew "imagemagick"
 # Build automation system written for X11
 brew "imake"
 # Just Another Gibbs Sampler for Bayesian MCMC simulation
 brew "jags"
+# Image manipulation library
+brew "jpeg"
 # Regular expressions library
 brew "oniguruma"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
-# Process YAML documents from the CLI
-brew "yq"
+# Fast, Dynamic Programming Language
+brew "julia"
+# Interactive environments for writing and running code
+brew "jupyterlab"
 # Style and grammar checker
 brew "languagetool"
 # Sophisticated file transfer program
 brew "lftp"
-# CSS parsing and manipulation toolkit for GNOME
-brew "libcroco"
-# C library implementing the SSH2 protocol
-brew "libssh2"
-# C library of Git core methods that is re-entrant and linkable
-brew "libgit2"
-# Allows SpatiaLite to support ST_MakeValid() like PostGIS
-brew "liblwgeom"
-# YAML Parser
-brew "libyaml"
-# LZMA-based compression program similar to gzip or bzip2
-brew "lzip"
+# Framework for scientific data networking
+brew "libdap"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
 # Data compression library
 brew "lzlib"
 # Creates dependencies in makefiles
@@ -297,96 +301,106 @@ brew "texinfo"
 brew "udunits"
 # Command-line operators for netCDF and HDF files
 brew "nco"
+# Fortran libraries and utilities for NetCDF
+brew "netcdf-fortran"
 # Free/open-source library for nonlinear optimization
 brew "nlopt"
-# Platform built on V8 to build network applications
-brew "node"
 # Open-source coarray Fortran ABI, API, and compiler wrapper
 brew "opencoarrays"
+# Audio codecs extracted from Android open source project
+brew "opencore-amr"
 # Shell command parallelization utility
 brew "parallel"
+# Perl compatible regular expressions library
+brew "pcre"
+# Parallel gzip
+brew "pigz"
 # C/C++ function library for exporting 2-D vector graphics
 brew "plotutils"
-# Library to work with the PDF file format
-brew "podofo"
+# Adds support for geographic objects to PostgreSQL
+brew "postgis"
 # Object-relational database system
-brew "postgres"
+brew "postgresql@18"
+# Database of common MIME types
+brew "shared-mime-info"
 # Convert PostScript and PDF files to editable vector graphics
 brew "pstoedit"
-# Tool to create Python bindings for C and C++ libraries
-brew "sip"
-# Python bindings for v5 of Qt
+# Provides functionality for near-realtime simulation systems
+brew "qt3d"
+# Provides a high-level API for creating 3D content or UIs based on Qt Quick
+brew "qtquick3d"
+# Provides functionality for rendering regions of dynamic web content
+brew "qtwebengine"
+# Python bindings for v6 of Qt
 brew "pyqt"
-# Computes convex hulls in n dimensions
-brew "qhull"
+# Python library for creating static, animated, and interactive visualizations
+brew "python-matplotlib"
+# Tools for and transforming and inspecting PDF files
+brew "qpdf"
 # Fast updates of QR and Cholesky decompositions
 brew "qrupdate"
 # Port to Qt of the Scintilla editing component
 brew "qscintilla2"
-# Software environment for statistical computing
-brew "r"
+# Provides support for communicating with gRPC services
+brew "qtgrpc"
+# Cross-platform application and UI framework
+brew "qt"
+# Rsync for cloud storage
+brew "rclone"
 # Perl-powered file rename script with many helpful built-ins
 brew "rename"
+# Utility that provides fast incremental file transfer
+brew "rsync"
+# Safe, concurrent, practical language
+brew "rust"
 # Software for mathematics, science, and engineering
 brew "scipy"
+# Tool to create Python bindings for C and C++ libraries
+brew "sip"
 # Tool to create intelligent and beautiful documentation
 brew "sphinx-doc"
-# SQLite ODBC driver
+# ODBC driver for SQLite
 brew "sqliteodbc"
-# File system client based on SSH File Transfer Protocol
-brew "sshfs"
-# Suite of Sparse Matrix Software   # !!! No need at present !!!
-# brew "suite-sparse"
+# Version control system designed to be a better CVS
+brew "subversion"
 # Solve large, sparse nonsymmetric systems of equations
 brew "superlu"
 # Generate scripting interfaces to C/C++ code
 brew "swig"
 # Data compression library with small memory footprint
 brew "ucl"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
 # Compress/expand executable files
 brew "upx"
-# GNU Fortran compatibility for Apple's vecLib
-brew "veclibfort"
-# Toolkit for 3D computer graphics, image processing, and visualization
-brew "vtk"
-# Cross-platform C++ GUI toolkit (wxWidgets for macOS)
-brew "wxmac"
-# General-purpose lossless data-compression library
-brew "zlib"
-# Graph visualization software from AT&T and Bell Labs
-brew "graphviz"
 # Google's JavaScript engine
 brew "v8"
-# Interpreted, interactive, object-oriented programming language
-brew "cmarquardt/formulae/python@2"
-# Package for scientific computing with Python@2
-brew "cmarquardt/formulae/numpy4python@2"
-# Software for mathematics, science, and engineering for Python@2
-brew "cmarquardt/formulae/scipy4python@2"
-# Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats, with netcdf, Python 2 interfaces and optional static libraries
-brew "cmarquardt/formulae/eccodes-cm"
-# EUMETSAT Polar System (EPS) data format library and python interface
-brew "cmarquardt/formulae/eugene"
-# Convert any Java jar to a Mac OS X App bundle
-## brew "cmarquardt/formulae/jar2app"
-# Some Python utilities
-brew "cmarquardt/formulae/python-utils"
-# Standards of Fundamental Astronomy (SOFA) library - C version
-brew "cmarquardt/formulae/sofa"
-# Standards of Fundamental Astronomy (SOFA) library - Fortran version
-brew "cmarquardt/formulae/sofa-fortran"
-# Casks for editors
-## cask "atom"
-## cask "sublime-text"
-## cask "textmate"
-# Casks for databases
-cask "db-browser-for-sqlite"
-cask "pgadmin4"
-# Vagrant and friends - note sudo password is required for vagrant itself
-## brew "packer"
-## brew "vagrant-completion"
-## cask "vagrant"
-## cask "vagrant-vmware-utility"
-## cask "vmware-fusion"
-# VMWare Horizon client
-## cask "vmware-horizon-client"
+# GNU Fortran compatibility for Apple's vecLib
+brew "veclibfort"
+# Tool for creating isolated virtual python environments
+brew "virtualenv"
+# Python virtualenv extensions
+brew "virtualenvwrapper"
+# Toolkit for 3D computer graphics, image processing, and visualization
+brew "vtk"
+# Cross-platform C++ GUI toolkit
+brew "wxwidgets"
+# Python bindings for wxWidgets
+brew "wxpython"
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew "yq"
+# General-purpose lossless data-compression library
+brew "zlib"
+# Software environment for statistical computing
+brew "cmarquardt/formulae/r-openmp"
+# Terminal-based AI coding assistant
+cask "claude-code@latest"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
+# Command-line agent for Cursor
+cask "cursor-cli"
+vscode "anthropic.claude-code"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-vscode-remote.remote-containers"
+vscode "reditorsupport.r"
+vscode "reditorsupport.r-syntax"
