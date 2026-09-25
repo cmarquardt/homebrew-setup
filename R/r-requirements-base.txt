@@ -2,6 +2,7 @@ tidyverse      # Tidyverse, data.table, times
 zeallot
 glue
 skimr
+janitor
 DT
 dtplyr
 data.table
