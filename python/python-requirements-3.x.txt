@@ -2,124 +2,26 @@
 
 --no-binary :all:
 
-# Packages required by others
-flit_core
-flit
-pluggy
-poetry
-tqdm
+# Packages for development
+joblib
+pytest                 # TODO: Does pytext have to installed in local virtualenvs?
 
-# Main pWangackages
-appdirs
-appnope
-apscheduler
-attrs
-backcall
-bleach
-brewer2mpl
-certifi
-cftime
-chardet
-Click
-colorclass
-cycler
-cython
-decorator
-defusedxml
-distlib
-ecmwf-api-client
-cdsapi
-cfgrib
-entrypoints
-filelock
-fortran-language-server
-future
-ggplot
-gitdb
-gitdb2
-GitPython
+# Packages for Jupyter
+jupyter                # Installs LOTS of dependencies including ipython; non-binary install fails
+
+# Packages for data formats
+netCDF4                # includes cftime
 h5py
-idna
-importlib-metadata
-ipykernel
-ipywidgets
-ipython
-ipython-genutils
-jedi
-Jinja2
-json5
-jsonschema
-jupyter-client
-jupyter-contrib-core
-jupyter-core
-jupyter-nbextensions-configurator
-jupyterlab
-jupyterlab-server
-jupyterlab_templates
-kiwisolver
-MarkupSafe
-matplotlib
-mistune
-nbconvert
-nbformat
-netCDF4
-notebook
-numpy
-packaging
-pandas
-pandocfilters
-parso
-patsy
-pbr
-pew
-pexpect
-pickleshare
-pip-check
-pip-chill
-pip-upgrade-outdated
-pipdate
-pipdeptree
-prometheus-client
-prompt-toolkit
-psutil
-psycopg2
-ptyprocess
-py
-Pygments
-pyparsing
-PyQt5
-PyQt5-sip
-pyrsistent
-python-dateutil
-python-jsonrpc-server
-python-language-server
-python_logging_rabbitmq
-pytz
-PyYAML
-pyzmq
-requests
-scipy
-seaborn
-Send2Trash
-sip
-six
-smmap
-smmap2
-statsmodels
-stevedore
-terminado
-terminaltables
-testpath
-toml
-tornado
-tox
-traitlets
-ujson
-urllib3
-virtualenv
-virtualenv-clone
-virtualenvwrapper
-wcwidth
-webencodings
-xarray
-zipp
+
+# Packages for science
+# numpy                # via brew
+# scipy                # via brew
+# pillow               # via brew
+# matplotlib           # via brew (python-matplotlib)
+
+# Other
+# virtualenvwrapper    # via brew
+# jupyterlab           # via brew - jupyter package still required
+# gdal                 # via brew
+# setuptools           # via brew (python-setuptools, python-packaging)
+# wxpython             # via brew
