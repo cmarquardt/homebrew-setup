@@ -183,6 +183,25 @@ intentional (no longer needed) or drift. Confirm against the current
 toolchain (current `tbb`/`libomp`/`gdal` versions) when something in this
 table stops mattering, rather than assuming history is still accurate.
 
+#### Retired packages
+
+A package that disappears from CRAN gets commented out in its requirement
+file with a marker note, e.g.
+
+```
+#gamlss.mx      # retired from CRAN as of 2026-09-24, confirmed via available.packages()
+```
+
+Use `#` for the trailing note too (not `--`), so deleting the leading `#`
+cleanly re-enables just the package name. `--ensure` recognizes the
+`retired from CRAN` marker and, at the end of each run, checks those
+packages against `available.packages()`: any that are back get a
+`[retired] <pkg> is back on CRAN -- re-enable it in <file>` line (surfaced
+as a warning by Chores' `report.sh`), the rest a single "still off CRAN"
+summary. It never re-enables anything itself, and a failed CRAN lookup
+only logs a warning. Commented-out lines without the marker (disabled for
+some other reason) are ignored.
+
 `ROracle` is a separate case: not a normal CRAN install (a bundled
 tarball, `R/ROracle_1.3-2.tar.gz`), needs the Oracle Instant Client
 installed with `ORACLE_HOME` set, and an `OCI_LIB`/`ORACLE_HOME` env

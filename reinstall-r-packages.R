@@ -64,6 +64,15 @@ read.requirements <- function(filename) {
   unique(lst[lst != ""])
 }
 
+# Packages disabled because they were retired from CRAN, i.e. lines of the
+# form "#pkgname  # retired from CRAN ...". Only lines carrying that
+# marker count -- a plainly commented-out package (disabled for some other
+# reason) is not something to watch for.
+read.retired <- function(filename) {
+  lines <- grep("^#\\s*[A-Za-z][A-Za-z0-9.]*\\s*#.*retired from CRAN", readLines(filename), value = TRUE)
+  unique(sub("^#\\s*([A-Za-z][A-Za-z0-9.]*).*", "\\1", lines))
+}
+
 # 1. Configuration
 # -----------------
 
@@ -362,6 +371,39 @@ mode_ensure <- function(stages, dry_run, force) {
     log_msg("[stage %s] %d missing of %d declared: %s", stage, length(missing), length(wanted),
             paste(missing, collapse = ", "))
     install_missing(missing, dry_run)
+  }
+
+  check_retired(stages)
+}
+
+# Report retired packages (see read.retired()) that are available on CRAN
+# again, so their requirement-file entry can be re-enabled by hand. Never
+# re-enables anything itself, and a failed CRAN lookup (offline, ...) is
+# only a warning -- this is informational and must not fail the run.
+check_retired <- function(stages) {
+  retired <- list()
+  for (stage in intersect(stages, STAGE_ORDER)) {
+    file <- file.path(SCRIPT_DIR, STAGE_FILES[[stage]])
+    if (!file.exists(file)) next
+    for (pkg in read.retired(file)) retired[[pkg]] <- STAGE_FILES[[stage]]
+  }
+  if (length(retired) == 0) return(invisible(NULL))
+
+  # An unreachable repository usually just yields a warning and an empty
+  # index rather than an error -- treat both the same way.
+  avail <- tryCatch(suppressWarnings(rownames(available.packages())), error = function(e) NULL)
+  if (length(avail) == 0) {
+    log_msg("[warn] could not check retired packages against CRAN (index unavailable)")
+    return(invisible(NULL))
+  }
+
+  back <- intersect(names(retired), avail)
+  for (pkg in back) {
+    log_msg("[retired] %s is back on CRAN -- re-enable it in %s", pkg, retired[[pkg]])
+  }
+  still <- setdiff(names(retired), back)
+  if (length(still) > 0) {
+    log_msg("[retired] %d package(s) still off CRAN: %s", length(still), paste(still, collapse = ", "))
   }
 }
 
