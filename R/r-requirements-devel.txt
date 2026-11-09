@@ -13,12 +13,20 @@ RcppCNPy
 RcppEigen
 RcppParallel
 RUnit
+remotes
+languageserver
+styler
+lintr
+httpgd
+ellmer         # LLMs
+btw
 git2r
 drat
 reticulate     # Python
 foreach        # Parallel processing
 doParallel
 doRNG
+doFuture
 multidplyr
 future
 Rfast

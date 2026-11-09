@@ -10,6 +10,12 @@ data.table.threads
 xts            # Time series support
 zoo
 astsa
+tsibble
+tsibbledata
+fable
+feasts
+fpp3
+tseries
 hms
 ggplot2        # ggplot2 / plotting
 ggvis
@@ -17,6 +23,7 @@ ggforce
 ggfortify
 ggpubr
 ggrepel
+ggdensity
 ggridges
 ggsci
 ggsignif
@@ -35,7 +42,8 @@ corrplot
 magick
 plotly
 latex2exp
-#arrow         # Data formats - FIXME: arrow doesn't work right now...
+arrow          # Data formats
+qs2
 hdf5r
 ncdf4
 RNetCDF
